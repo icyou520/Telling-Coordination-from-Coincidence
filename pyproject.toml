@@ -1,0 +1,20 @@
+[project]
+name = "emergence-lab"
+version = "0.1.0"
+description = "Test when a coarse-grained description of a system has its own autonomous dynamics."
+requires-python = ">=3.12"
+dependencies = [
+    "h5py>=3.16.0",
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.4",
+    "scipy>=1.18.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

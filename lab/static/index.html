@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emergence Lab</title>
+<link rel="stylesheet" href="lab.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#/home"><span class="logo">◎</span> Emergence Lab</a>
+  <nav id="nav">
+    <a href="#/home" data-route="home">Home</a>
+    <a href="#/concepts" data-route="concepts">Concepts</a>
+    <a href="#/sims" data-route="sims">Simulations</a>
+    <a href="#/fish" data-route="fish">Real fish</a>
+    <a href="#/experiments" data-route="experiments">Experiments</a>
+    <a href="#/results" data-route="results">Results</a>
+  </nav>
+</header>
+<main id="app"></main>
+<div id="lightbox" class="lightbox hidden">
+  <button class="lb-close" aria-label="Close">×</button>
+  <button class="lb-prev" aria-label="Previous">‹</button>
+  <button class="lb-next" aria-label="Next">›</button>
+  <div class="lb-body">
+    <img alt="">
+    <aside class="lb-text"></aside>
+  </div>
+</div>
+<script src="data.js"></script>
+<script src="fish.js"></script>
+<script src="charts.js"></script>
+<script src="sims.js"></script>
+<script src="replay.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

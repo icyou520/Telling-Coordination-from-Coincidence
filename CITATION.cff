@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this code or its results, please cite it as below."
+title: "Emergence Lab: telling coordination from coincidence with a no-interaction twin"
+authors:
+  - family-names: Couture
+    given-names: Eric J.
+version: "1.0.0"
+date-released: "2026-10-30"
+license: MIT
+type: software
+repository-code: "https://github.com/icyou520/Telling-Coordination-from-Coincidence"
+preferred-citation:
+  type: article
+  title: "Telling coordination from coincidence: a no-interaction twin for collective systems"
+  authors:
+    - family-names: Couture
+      given-names: Eric J.
+  year: 2026
+  status: preprint

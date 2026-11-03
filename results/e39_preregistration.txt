@@ -1,0 +1,299 @@
+Wed Oct 28 20:17:47 UTC 2026
+7130d0757a0b15965f9d1586e91c31c968c2679aca7e2c55d783791213281c1d  experiments/e39_multiscale_elimination.py
+a62a21f72bbfab16e5c1d620d0977707e252ff4124611d868476e7936c205464  lean/InteractionShare.lean
+
+e40 pre-registration
+Wed Oct 28 20:30:10 UTC 2026
+492309eb8415c46c52b7d0fbda63b30268f5d2059b43792f1c69e88b59242c34  experiments/e40_elimination_centre_twin.py
+761752d595866f18db7d3ee91aa9e18a46c05720844bb4112101a27202a532a0  experiments/e39_multiscale_elimination.py
+(e39 file refactored after its run: own terms via own_features(); decisions identical on a test slice, numbers within 3e-11)
+
+e41 pre-registration
+Wed Oct 28 20:44:22 UTC 2026
+dec264ec8aae16afb0619875cb92118f54e27d01a35094cfc3bb626058118650  experiments/e41_elimination_place_speed.py
+62bd5f909a6b9e5f1503a62e8d8c097d2eb20da6fc4c8616c56c7964e558e612  experiments/e41_figures.py
+e41 post-run: e41_figures.py edited cosmetically (layout fixes, added figure 11); analysis file unchanged
+Wed Oct 28 20:53:19 UTC 2026
+dec264ec8aae16afb0619875cb92118f54e27d01a35094cfc3bb626058118650  experiments/e41_elimination_place_speed.py
+8f6dc1f2e6ff6d8aaa335dd278bb25e95ec3efb9487ccc328d66cb59546e2076  experiments/e41_figures.py
+
+e42 pre-registration
+Wed Oct 28 20:59:57 UTC 2026
+427a0232f0d9a55794b350f34f47da6210e11c42bf3df304180643479c86f59d  experiments/e42_elimination_cohesion_gate.py
+8396924b0ef953f18886bfe979115604f0ff6a9869319d6faf666b2c0f65448d  experiments/e42_figures.py
+
+e43 pre-registration
+Wed Oct 28 21:18:00 UTC 2026
+96e98ff34703ef9cb64896fd398b60e9333f9b5f6a5ab9e71c66f04ca5b09544  experiments/e43_elimination_fish_maps.py
+e149aeda0ee0adcde12d4111a6f8601acb05c6c40ce7c6397608e7b48e9d79fb  experiments/e43_figures.py
+
+e43b exploratory diagnostic (not pre-registered), run after e43
+e20615deda7c3f85bc6ea1154837df796100297b24abc5b55ab43b6f749df6b8  experiments/e43b_virtual_diagnostic.py
+
+e44 pre-registration
+Wed Oct 28 21:35:57 UTC 2026
+4c5a6550b9d1a5539af4aa7206fa3d280df96f034e8f4477b8edc42c00b6bc5e  experiments/e44_elimination_speed_heading.py
+0b14fc130e5d6331b9d9ddbd2402e0a3a26c74bd9bd1795c5e06fd4c88311923  experiments/e44_figures.py
+96e98ff34703ef9cb64896fd398b60e9333f9b5f6a5ab9e71c66f04ca5b09544  experiments/e43_elimination_fish_maps.py
+
+e45 pre-registration
+Wed Oct 28 22:00:38 UTC 2026
+8eeced048ceaac2852973395def77fae643da95c1c0df7045d2b821268025803  experiments/e45_interaction_spectrum.py
+fd05f715d88a97092eca4d1cc05039cd8158fe6471de4e3034c560898e078ba6  experiments/e45_figures.py
+1cbaabcf1e6670a6bda98619530c02458742cb404ce9623e0678ea9f6a67a842  lean/InteractionShare.lean
+
+e46 pre-registration
+Wed Oct 28 22:05:26 UTC 2026
+a41b9e23a44ec4b1d25d8db0681dee82a09458b074a54941ad9904499d0939a1  experiments/e46_spectrum_estimated_twin.py
+63910cb051d5b4b640ad50dcbb0ca533681c2daab9fc6729c47ad27ac89bbe3a  experiments/e46_figures.py
+
+e47 pre-registration
+Wed Oct 28 22:45:40 UTC 2026
+48997527c5e70e1eafb048afcc0190564679111c9b20a39929345b6da8f5939d  experiments/e47_closed_layers.py
+17589d3f0b74bbeaff74eeeb58f18a03d63a04333718e58f720e0283424d3906  experiments/e47_figures.py
+0d1191205230b628294ef37ddd9cc92a30a13d4f6e5642ed8008da31f6bd7847  lean/InteractionShare.lean
+
+e47 post-run edit (figures only: layer-map label placement, exact G overlay)
+Wed Oct 28 22:46:43 UTC 2026
+4093cbeefc27adc4046cdf3f0ce3673c6c4ff4c2c7720ea35c626057df853728  experiments/e47_figures.py
+
+e48 pre-registration
+Wed Oct 28 22:53:52 UTC 2026
+c59f188dce38567b3b634b5bd6bcb99df17a5a4e4f1bcf7c1ade5ade960023b4  experiments/e48_fish_layers.py
+0bf85480d2245267f8e5ca55fd3821f93f9f333e4bbf493864ef7280f13604ee  experiments/e48_figures.py
+
+e49 pre-registration
+Wed Oct 28 23:06:30 UTC 2026
+3f35ccbaa0996a5bdc38b860505927b2aea090db9671da6191d0fffc23a1ca8b  experiments/e49_school_layer.py
+88fc4513dd7dc1b7ff7ae869959b93f306c0d9a124eb477ed1bfc20d4607a387  experiments/e49_figures.py
+
+e50 pre-registration
+Wed Oct 28 23:13:28 UTC 2026
+b2eb672305e731a01f0219cedd2458efa5bd35c63d3e14c372ab961d8fdde2f0  experiments/e50_school_configuration.py
+bef05e4a7f4adde2a6a5d9716c90259433fec3f5ecc502c69e48e6966163b6b8  experiments/e50_figures.py
+e51 pre-registration (method fixed on recording 0 only; predictions K1-K6 unchanged from first draft)
+Wed Oct 28 23:51:04 UTC 2026
+7f3b40928f015eba938ad439d3f7b2d26394e4f71aa06be72e1398b57c42a832  experiments/e51_trusted_closure.py
+2d83cd81c94fb1cfdcf1bc441c93fdc2932f461745c7eabd31d242649cdd2f60  experiments/e51_figures.py
+
+e52 pre-registration
+Wed Oct 28 23:58:51 UTC 2026
+e88be36ff014861ebde91dc4b7c5a8b6e9424f9c29ad9e8cbb54eabb17c5583b  experiments/e52_influence_map.py
+f259d8ad54ef0a34f671ec9a382806b4c2b857bceca8a8a6648beb3b6de5287a  experiments/e52_figures.py
+
+e53 pre-registration
+Thu Oct 29 00:09:37 UTC 2026
+930d11c60bf70bb8df2ca81270d4327d33c9b5c1cbeb989788fe91db8831fa8b  experiments/e53_influence_replication.py
+25416f2c65e129db052647ec91257b1c0e3a78d6b3f2a2bf6bfbb5e5f21179f8  experiments/e53_figures.py
+
+e54 pre-registration
+Thu Oct 29 00:23:45 UTC 2026
+21f7e91580d9e67f8c3dba8c46c331139f2b0b416e07ba0aeb75ec4c4d05b5ac  experiments/e54_neutral_directions.py
+7dd4c6be04d381e9290ac346f41d3e66943b748f67930c395ef97876980b7a59  experiments/e54_figures.py
+bad4f7eadc75084c3e0604a22a577a05360e8def8c241542ad9ed9671c5cdd1c  experiments/e54_sims.py
+
+e55 pre-registration
+Thu Oct 29 00:29:36 UTC 2026
+a583cc23351375dcc6bb48621821715fb55f0e2f97afc420154ef78b1086c397  experiments/e55_free_members.py
+c815775ad678dec09ba08727e6ccb021814477957c2912a58d05743e3a83a5c2  experiments/e55_figures.py
+54e1b7e5768133a1bdd941e4802b647d02744cb7e366b347e1db3261f264b4f5  experiments/e55_sims.py
+
+e56 pre-registration
+Thu Oct 29 00:34:49 UTC 2026
+60bfb92f408519713e3055bf6c1b8b090fe4bfbcf4d9fb4e922d9a6f1e668736  experiments/e56_measured_lock.py
+3f47f5afabb99d27a598617d5f23e4c7be43b73b348a3cacc6b818cfb78568a4  experiments/e56_figures.py
+
+e57 pre-registration
+Thu Oct 29 00:39:11 UTC 2026
+48ee271ab76cfa73a30f91b7de8fbdba49be6d0d12bc6c92fcbe762f08cff29d  experiments/e57_oscillator_looseness.py
+8a43bc802dc808cdb2999ea1aa1a4bbce28b610d6b752c2548ade66667f3511a  experiments/e57_figures.py
+
+e58 pre-registration
+Thu Oct 29 00:44:35 UTC 2026
+90182592183d295b6a48a1a36b09701691a3d2c105b743413dae5f782b88b30e  experiments/e58_innovation.py
+5c1bcead3928eff6fe142ddd18648f2e179c79558cb07b3d3ffaeed5bd57b768  experiments/e58_figures.py
+
+e59 pre-registration
+Thu Oct 29 00:50:17 UTC 2026
+2e6a2db69c1fa6a1a8b89d0d1f1223dd3b4d1187f4d87ef1374c2bb64adeb701  experiments/e59_slaving.py
+8c521fc78ad843abba135c46c363d0d5439635ea54bab1c4ce60b7e906554308  experiments/e59_figures.py
+
+e60 pre-registration
+Thu Oct 29 00:55:11 UTC 2026
+84f693b374e36f335560d9af7612cde7069c87569103dc061b46a1d00f88b869  experiments/e60_slow_features.py
+c977017b3efe37bbb4552fc265b2587cbc8f2eda086f7390e8cbf73784b3c572  experiments/e60_figures.py
+
+
+e61 pre-registration
+Thu Oct 29 17:56:34 UTC 2026
+c97a638e593886f478260d7196e10a4348d9b552d3788bb1d927565ed008066f  experiments/e61_neural_share.py
+d5253342524308effd34bd498a0020bc14b7291cd900c8f1731bdbee630da299  experiments/e61_figures.py
+41e6eb17269253362288e749e1369b1844287bfc30cdcded8596725ecb76152e  experiments/steinmetz_data.py
+
+e62 pre-registration (e61 seen: 4/9, twin fits diverged; see e62 docstring)
+Thu Oct 29 18:15:29 UTC 2026
+a736b7538211309dbcf61a231278edd4e576768079ede10bc4dd09b4188ee383  experiments/e62_neural_share_repaired.py
+170755a2017f3cbf8997d7a17cd3f38caa3de63b7b139e206d7bf888e37b72f8  experiments/e62_figures.py
+
+e63 pre-registration
+Thu Oct 29 18:36:07 UTC 2026
+1f52eb68c3aca43ca5c08f2bbd77a177d6494a9d6a089f5328e6e58040ee1d26  experiments/e63_area_closure.py
+1ba20feadaeb1ed727528fb07dcaf05fee25de868fcd9ef6fdf7351e3693466b  experiments/e63_figures.py
+
+e64 pre-registration
+Thu Oct 29 19:02:40 UTC 2026
+18d52f565fbdf14e5d277478ca97d8abe0be073051ba86f53999ca2ee1469e28  experiments/e64_input_silencing.py
+be604cbfe8c89d6860e495763ffa39b09040104147e45fff828a2a7ff1d2d6a9  experiments/e64_figures.py
+202c01e2518595e0c92ab310b483a2d2ef97f434cc6fc41c5903d05df7b446e9  experiments/inagaki_data.py
+
+Thu Oct 29 19:06:39 UTC 2026
+fbe456409b8dc44082bcf1a5d963d09cb17ce87471722b640c0fa10ac4f7278c  experiments/e65_input_silencing_precue.py
+39e23772032e5d0ad185a80e16c7d27f03c51cd145094159cfadf442a2c8ebbd  experiments/e65_figures.py
+
+Thu Oct 29 19:12:12 UTC 2026
+fa55fa823127d9b831ced0a0bfb2e84205de3948414cb327778fb3374389c2ca  experiments/e66_market_volatility.py
+b76ba3327be667f66bef8768f58e2f0b6e0276165619edbfa5beb8dace2b1969  experiments/e66_figures.py
+1a3ff71b5b194d7669e17590724df2de51a5fe9c4b21d3495f54a8b245692c36  experiments/finance_data.py
+
+Thu Oct 29 19:30:32 UTC 2026
+655a68cb3b8053ce636276478dcba476c50e725ecd3ce8f5f8c08866ae09ea0e  experiments/e67_memory_gap.py
+d93d193194116e4456d8a44b2d98a9d4721a4ca9910798f42c2a9c9dd3d24038  experiments/e67_figures.py
+
+Thu Oct 29 19:42:02 UTC 2026
+5c0e386d2254d56ba000afdf1b662e79d56662fadf607309022109e1d1ba8d93  experiments/e68_fish_memory_gap.py
+0382610d002bfdc7a2541c56d4b583e35a4e607ccce3fda4b964bdc6d876618e  experiments/e68_figures.py
+
+Thu Oct 29 19:43:18 UTC 2026
+6bdf6d268af9431974e5891d9ce7a84b67b9dc004e1d70f6b05180988e1798a8  experiments/e69_market_log_volatility.py
+41fecec6d17e8ac89dec21037341dec24012c61bd6afd9a5a8816d94c0abeba0  experiments/e69_figures.py
+a07ac2801b0a9868c7c188e2b091fd9ebf68aeb7aeb8a0a007151f5af880dc62  experiments/finance_data.py
+
+Thu Oct 29 20:06:27 UTC 2026
+706758262c4a374e10f40dc4b64ef8d727201133d4f2f74f743e9aa328057ec7  experiments/e71_alm_holdout.py
+8d4e166a1b7e2055a28da4b25fe2e2c7b05d5f09e44f717fbdcb7e678bd60661  experiments/e71_figures.py
+e7075281b23ab0e0d5f0e9c957620b56cfeb6abaf03a396c6cc565be9aa4fb6d  experiments/memgap.py
+
+Thu Oct 29 20:09:53 UTC 2026
+c5ba917616c8405c0b2361a6956d8cf68f75e9e6074986bcca7d32d522c3ec11  experiments/e72_polarization_gap.py
+a42e9769d64256841763ffcd3848b24317d47304a1e525630c57c3ad9c93bcda  experiments/e72_figures.py
+
+Thu Oct 29 20:21:40 UTC 2026
+541e2650dc44943249df85a994828b7a4d309006e9a939165b2b2f6db646e8e6  experiments/e73_alm_replication.py
+6361a6461afea73ff3fcb3bdafe872dd3aa4f25f8ffde8274dc2df6d16cbdea3  experiments/e73_figures.py
+37a3ab4c0f1b1a43bfc08444688194ce13b500b16d5b82d6e16ddd86bffd270d  experiments/economo_data.py
+
+Thu Oct 29 20:28:22 UTC 2026
+535b52bd56d34c6d4af7eecd794bfa3f126af2054d59784ac90064ac693ae2e9  experiments/e74_nonlinear_gap.py
+aa9143cf356b43659baa096c865122a4ae0100831dc58484019d40cd46e2778f  experiments/e74_figures.py
+
+Thu Oct 29 21:51:59 UTC 2026
+c772a66d00e5a63c5fd1dc80abf9986778450c13af7de099dc0b1da8e3f230a4  experiments/e75_exact_twin.py
+d2d73925835fdef90fbfb0982e49d1f733499b766a07afad5007309b4e38dad6  experiments/e75_figures.py
+
+Thu Oct 29 21:53:40 UTC 2026
+correction to e75 (REAL key collision; predictions unchanged)
+3a801c479e37131f94f8dde718d8744675d9e18f411123ac8870ea75ff6c008b  experiments/e75_exact_twin.py
+
+Thu Oct 29 21:55:22 UTC 2026
+e75 figures: tick labels only
+f9ff8bc80b7c38215a38f1633cfc23cfdf2b7ed2cbeef609005efd859974782f  experiments/e75_figures.py
+
+Thu Oct 29 22:05:57 UTC 2026
+12eeb69757a092c9ad39a35b17e6451dd2d5a74fddf7a6c3591f8ffca4ed7068  experiments/e76_leak_audit.py
+5e9a4767f3879e7f13e266255a2cf9736636fd1cb0e18717aac4a3ad1dff0202  experiments/e76_figures.py
+
+Thu Oct 29 22:11:24 UTC 2026
+e76 figures: legend only
+a262304840a709a4d0a65e68934c7a2db5675fcb8db142deda47b9217800d5e3  experiments/e76_figures.py
+
+Thu Oct 29 22:34:13 UTC 2026
+d09d33ebf472ee80d8e6d76d9112210e760c09db62298d8e203e41629053964b  experiments/e77_fish_gap.py
+c234217eae82fb1ae04f4aa66fab41f388180b6dc639d1cbf9e0abaed249cad6  experiments/e77_figures.py
+
+Thu Oct 29 23:45:16 UTC 2026
+2d42b09db3fc39f48a76eecef6b0edcae813a72c074b23a489fc5b36a652529d  experiments/e78_split_audit.py
+5848896a569931ea8c801fa9bdaf5445b80be309a7a9f7885b1f81ac5132c73b  experiments/e78_figures.py
+
+Thu Oct 29 23:46:06 UTC 2026
+e78 correction: main() accepts run.py's quick argument (signature only, before any rotated result)
+1cd364ce128a41417869d98a8fe82279a5e04ef14afe8323a06b2a7217535ed2  experiments/e78_split_audit.py
+
+Fri Oct 30 00:18:03 UTC 2026
+47b4f6b97a4f38464ef9b6b302d738d28ddc3dc28eb58c5b11389add49cd558d  experiments/e79_stocks.py
+b6d5b907226f00437bbe8862c92eb3353021268f5a8edc235c11e3d3e4ca3627  experiments/e79_figures.py
+687978d60517ddd7b0baee82d721c58a5dbf9ed8b5e57e64bb9022f7d57d973b  experiments/stock_data.py
+f8eaf8976c473ac8ba0ace15f2c37223beb306e82b414f9dd498e7f4ca04d465  data/stocks/constituents.json
+
+Fri Oct 30 00:18:52 UTC 2026
+e79 correction: stock_data.panel info count cast to int for JSON (the first run crashed before writing or printing any result)
+21ec95f5bf5bac941aafdce54d5af8a9074534a3d1c1ed4092645a8053ff1744  experiments/stock_data.py
+
+Fri Oct 30 01:04:08 UTC 2026
+d40b87fd38b7615ba335ef3a6d2f597faefa18c441396362af37203221e35aa4  experiments/e80_intervention.py
+ee774a308c21eb7571ac850970705a1ba1a302b6ebc804d79dc44c2342076704  experiments/e80_figures.py
+1346e11424549321431c014d492186bd8e877b64a424a3c4879a3d6ba19f067c  experiments/intervention_data.py
+3ccdfcafe4165b9a867ff3e1908fc32b415f9bcdfa08b1a5fed5784190e00f9f  data/intervention/liu.zip
+8d55d2b5a03ab5193111b21081074fac2214c2afbf4bd3ba1286c73a0b524f9c  data/intervention/vr/2R-TwoRealFish.dat
+6b3dc238750d085285c9c4d21690e87a71e3d63ea72ec81cd7fd7cf54ec7ca37  data/intervention/vr/C1-OneReal+OneVirtual.dat
+23a0ea8ff2cb6112e64cff5ea4cc0dc201f844b9ea02f28962ac51fc3c829745  data/intervention/vr/C2-OneReal+OneVirtual.dat
+5137c1aa90ebed10edfcaf6f4d791a823f290caccfe06a47e8e2e93d8ba2e5d1  data/intervention/vr/C3-OneReal+OneVirtual.dat
+
+Fri Oct 30 17:19:35 UTC 2026
+d53e2c210f278e3d466b3a69680bd4261eb4d1cd41545f7e55a5b5707b8036cd  experiments/e81_spillover.py
+4bf6dc22f02daff78df25f50bf1c89dbd9081e50835a8172625df29da8f62e25  experiments/e81_figures.py
+
+Fri Oct 30 17:40:51 UTC 2026
+e82 code (predictions F1-F6 fixed before the fresh markets were analysed; prices still downloading):
+69e764447ecf8b50f875f85c3bfb780e40c66696f7fabd19d6e3c6c78729f212  experiments/e82_correlation.py
+7760d19eb154e3a7a895ed2531dd7fed0082d38bacf8e205dfb4f96ef20bd336  experiments/e82_figures.py
+52e9f8a259b86796d5b7c6fde5da53b4145df233f994e6270230e2f2b2fe76b7  experiments/stock_data_fresh.py
+
+Fri Oct 30 17:43:01 UTC 2026
+e82 fresh data (constituents and prices, fetched after the code hash above):
+65213003178e0727e3afe21b9fc403c6d37517cd892cede2cf5e7505b28601aa  data/stocks_fresh/constituents.json
+e340046ac4238ed9fceb13513561c47c36f36588031cc44e79360b3cd5aa00a2  data/stocks_fresh/prices/* (concatenated, sorted by name)
+
+Fri Oct 30 18:04:22 UTC 2026
+e83 code and data (Lafoux fixed-light set; predictions S1-S3, R1-R6 fixed before any real share was computed):
+7c9163d8242936598ec32377fccafe73662ae8f4263b1680691165065d055670  experiments/e83_light_dose.py
+7e878471d4303d851cb65091c932d429c2bee77e623e4928633a580097935e8b  experiments/e83_figures.py
+8b7fc2f140530f7ab84f99cd7912d0c71d46a6f5ca7aceac225595abdb6e4536  experiments/lafoux_data.py
+ba3f6559fadbfb5dd530d7814f811abb181d448407f4e95c8b9b8865c7c0ca0a  data/lafoux/discrete_light_variation.zip
+
+Fri Oct 30 18:12:49 UTC 2026
+e83 note: exploratory diagnostics after the run (duplicate tracks, correlation by distance) were done in /tmp scripts, not pre-registered.
+
+Fri Oct 30 18:25:35 UTC 2026
+release audit: experiments/finance_data.py was refactored during e76 development (Oct 29, after its e69 hash a07ac280...) and not re-hashed then: the section parser became _section(lines, title) and regional() was added for e76's French regional portfolios. Undoing that one edit reproduces the e69 hash exactly, and the old and new loaders return identical arrays for industry_section, industries (every title and date range used by e66-e79) and stocks. Current file:
+619050d10212b365612941cc45cf612894fa5f86cc86ad66b8d57657fa7b575c  experiments/finance_data.py
+
+Sat Oct 31 00:41:42 UTC 2026
+e84 code (primes; predictions C1-C2, P1-P7 fixed after development on 10^9 only, before the held-out ranges 10^12 and 10^16 were analysed). Seen beyond development during sieve checks: the prime count of the first two blocks at 10^12 (2172, a Miller-Rabin agreement check) and one calibration ratio over 300 blocks at 10^15 (0.9998; 10^15 is therefore not used). Structure smoke test on stand-in ranges 2e9 and 3e10 (quick mode):
+9c5f8bd820fed740e6c4985d47a62afa8f3d9df6a5743e664ccb0d3fd33fdf46  experiments/e84_primes.py
+748182e7f59a4b76b2bdc7f7bb5ea7d3fd4c976aaa1992ff4a988b1d612d3b89  experiments/e84_figures.py
+f9487479312fb0ca1247a0aeb1b3b4be311f0730e2bfd230ee68768eb374a4f9  experiments/prime_data.py
+
+Sat Oct 31 00:58:42 UTC 2026
+e85 code (memory on top of deeper filters; predictions C1-C2, H1-H6 fixed after development on 10^14 only, before the held-out ranges 10^17 and 10^18 were analysed; a timing check sieved 50 blocks at 10^18 and printed only the time; structure smoke tests on stand-in ranges 3e14, 5e15 and a timing-only 5e18 panel):
+afe89bae5c24e6e908a45107ea451ee4c3b1a445161ce3e43c5192701ef7b9a3  experiments/e85_prime_filters.py
+1f441f9412d675e823f6fd342e7e3a09e0861137edfc2559f869187cacc2bdae  experiments/e85_figures.py
+
+Sat Oct 31 01:09:38 UTC 2026
+e86 code (Ising; predictions I1-I5 fixed after development on L 8 and 16 with seed 0; final run L 16, 32, 64 with seed 1 and longer runs; structure smoke test on stand-in sizes 8, 10, 12 in quick mode, and a timing check at L 64):
+0665669497b84a05e67c41cfa0f64b81672306b2c6262da3ba23e296581a8b5d  experiments/e86_ising.py
+d73693e61e8a49d076cb0aa151cc794843eae95fa3ac2b199b853909ade75eca  experiments/e86_figures.py
+
+Sat Oct 31 01:29:48 UTC 2026
+e87 code (RANDU; predictions N1-N5 fixed after development on seeds 1-2; final seeds 3-7; structure smoke test with seed 101 in quick mode):
+66fc6167177b5992e8c2db9c8b426fa4a1b196c3e33b784a54d6c64fb853af1b  experiments/e87_randu.py
+8b22d943ca1610c9702895905157c15f0247e0bb7dc7d97efb3fe6e866d34e11  experiments/e87_figures.py
+
+Sat Oct 31 01:34:29 UTC 2026
+e88 code (group size; predictions G1-G6 fixed after development with seed 0 up to N 1,000; final seed 1 up to N 10,000; structure smoke test with seed 101 in quick mode, timing check at N 10,000):
+5600ecf9f42e606128f4148a597926d66e9909a11b18c0ec7119a62d89c6126f  experiments/e88_group_size.py
+bc9e3816e2ce023847b93878d4730b848d67e682d72f8929f2f2a4231af167c8  experiments/e88_figures.py
+
+Sat Oct 31 01:46:59 UTC 2026
+e89 code (time reversal; predictions T1-T5 fixed after development on simulation seed 0 and value-weighted industries 1936-1971; final seeds 1-3 and equal-weighted industries 1972-2026 reversed; structure smoke test with seed 101 and the development market data):
+141dd8c0598be32d5a91c25443fb09ec92ccccf4ce3a918ec7ca2dda580c1f9a  experiments/e89_time_reversal.py
+f9de3a44ff90518dc3aeb2b1cdda8824331fbb3de00d725ce8aff2ae81f02bb1  experiments/e89_figures.py

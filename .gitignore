@@ -1,0 +1,55 @@
+# Allow-list: only what make_release.py ships is tracked. Notes, downloaded data and caches stay local.
+/*
+!/.gitignore
+!/.python-version
+!/README.md
+!/DATA.md
+!/FINDINGS.md
+!/LICENSE
+!/LICENSE-CC-BY-4.0.md
+!/CITATION.cff
+!/pyproject.toml
+!/uv.lock
+!/run.py
+!/explorer.py
+!/verify_preregistration.py
+!/make_release.py
+!/experiments/
+!/emergence_lab/
+!/lab/
+!/tests/
+!/lean/
+!/twinshare/
+!/manuscript/
+!/whitepaper/
+
+# third-party data: only the URL and constituent lists
+!/data/
+/data/*
+!/data/stocks/
+/data/stocks/*
+!/data/stocks/constituents.json
+!/data/stocks_fresh/
+/data/stocks_fresh/*
+!/data/stocks_fresh/constituents.json
+!/data/intervention/
+/data/intervention/*
+!/data/intervention/vr_urls.txt
+
+# results ship as a release archive; only the pre-registration log is tracked
+!/results/
+/results/*
+!/results/e39_preregistration.txt
+
+# generated
+/lab/site/
+/manuscript/manuscript_rendered.md
+/manuscript/manuscript.html
+/manuscript/novelty_memo.md
+/whitepaper/whitepaper.html
+/whitepaper/zzz.md
+__pycache__/
+.pytest_cache/
+.venv/
+report/
+.DS_Store
