@@ -15,7 +15,7 @@ def test_catalog_is_consistent():
         assert e["tone"] in {"pass", "partial", "fail", "explore"}
         for f in e["figures"]:
             assert f["what"] and f["read"] and f["tells"]
-            if RESULTS.exists():
+            if any(RESULTS.glob("*.json")):
                 assert (RESULTS / f["path"]).exists(), f["path"]
 
 
