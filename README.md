@@ -17,7 +17,7 @@ predictions passed. Every experiment, including the failures, is written up in [
 **Papers:** [manuscript (PDF)](manuscript/Couture_Interaction_Share_Manuscript.pdf) ·
 [white paper (PDF)](whitepaper/Couture_Interaction_Share_White_Paper.pdf).
 **Results** (raw JSON and figures for every experiment):
-[`emergence-lab-results-1.0.0.zip`](https://github.com/icyou520/Telling-Coordination-from-Coincidence/releases)
+[`emergence-lab-results-1.0.1.zip`](https://github.com/icyou520/Telling-Coordination-from-Coincidence/releases)
 on the Releases page.
 
 ## Contents
