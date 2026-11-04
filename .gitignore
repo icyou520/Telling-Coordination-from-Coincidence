@@ -1,6 +1,7 @@
 # Allow-list: only what make_release.py ships is tracked. Notes, downloaded data and caches stay local.
 /*
 !/.gitignore
+!/.zenodo.json
 !/.python-version
 !/README.md
 !/DATA.md

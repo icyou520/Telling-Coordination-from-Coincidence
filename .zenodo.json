@@ -1,0 +1,31 @@
+{
+  "title": "Telling coordination from coincidence: the interaction share and its no-interaction twin (Emergence Lab)",
+  "upload_type": "software",
+  "creators": [
+    {"name": "Couture, Eric J.", "affiliation": "Independent researcher"}
+  ],
+  "description": "<p>Code, papers and pre-registration record for <em>Telling coordination from coincidence: a no-interaction twin for collective systems</em>.</p><p>A group can look coordinated because its members interact, or because each member follows the same environment. The <strong>interaction share</strong> is the fraction of the forecast error of a system's no-interaction twin (the same members with every interaction removed) that the real group law eliminates. For linear forecasts it equals a <strong>memory gap</strong>: the cost of forecasting the group with its members' memory instead of its own.</p><p>Included: the manuscript and white paper (PDF and source), 90 experiments (e0 to e89; 73 scored against predictions written and hashed before each run, 342 of 492 passed), applications to fish schools, mouse cortex and stock markets, stress tests (Ising criticality, group size, time reversal, RANDU, prime numbers), Lean 4 proofs, and twinshare, a standalone tool for any panel of time series. Raw results are attached to the GitHub release.</p>",
+  "license": "MIT",
+  "keywords": [
+    "collective behavior",
+    "emergence",
+    "interaction share",
+    "no-interaction twin",
+    "memory gap",
+    "time series",
+    "complex systems",
+    "causal emergence",
+    "pre-registration",
+    "fish schools",
+    "neuroscience",
+    "finance"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/icyou520/Telling-Coordination-from-Coincidence",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
+  ],
+  "notes": "Code is MIT licensed; papers, write-ups and figures are CC BY 4.0 (see LICENSE-CC-BY-4.0.md). Third-party data are not included (see DATA.md)."
+}
