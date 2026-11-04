@@ -9,6 +9,7 @@ authors:
 version: "1.0.1"
 date-released: "2026-11-03"
 license: MIT
+doi: 10.5281/zenodo.23934342
 type: software
 repository-code: "https://github.com/icyou520/Telling-Coordination-from-Coincidence"
 preferred-citation:

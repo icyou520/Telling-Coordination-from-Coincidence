@@ -1559,7 +1559,8 @@ it cannot see dependence that leaves no linear trace.
 
 All experiments are scripted and deterministic. The simulations, real-data
 analyses and figures in this paper can be regenerated from the project
-repository:
+repository (github.com/icyou520/Telling-Coordination-from-Coincidence;
+archived at doi:10.5281/zenodo.23934342):
 
 * simulations: `uv run python run.py walkers twin noise flocktwin isolation curieweiss ising kuramoto kuramoto2`;
 * real data: `uv run python run.py fish fish2 fish3 pigeons pigeons2 pigeons3 zebrafish`

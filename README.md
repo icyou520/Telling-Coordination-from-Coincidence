@@ -1,5 +1,7 @@
 # Emergence Lab: telling coordination from coincidence
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23934342.svg)](https://doi.org/10.5281/zenodo.23934342)
+
 Code, pre-registration record and papers for *Telling coordination from coincidence: a no-interaction twin for
 collective systems* (E. J. Couture).
 

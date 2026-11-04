@@ -1078,7 +1078,9 @@ exact segmented sieve checked against Miller–Rabin, and the rest are
 simulations, apart from the French industry portfolios reused in e89.
 
 Every experiment is a script runnable with `uv run python run.py <key>`, with
-results, figures and the SHA-256 pre-registration log in the repository. The
+results, figures and the SHA-256 pre-registration log in the repository
+(github.com/icyou520/Telling-Coordination-from-Coincidence; archived at
+doi:10.5281/zenodo.23934342). The
 Lean proofs are in `lean/`. A general-purpose implementation for any panel
 of time series, `twinshare` (MIT licence, in `twinshare/`), adds a study file
 in which the analyst declares what counts as interaction and which shared
