@@ -462,6 +462,7 @@ COVER = f"""
   </div>
   <div class="meta">
     <div class="author">{AUTHOR}</div>
+    <div class="date">Independent researcher &nbsp;&middot;&nbsp; ORCID 0009-0004-3523-3469</div>
     <div class="date">{DATE} &nbsp;&middot;&nbsp; Version 2.2</div>
   </div>
   <div class="foot">&copy; 2026 {AUTHOR}. All results reported here were pre-registered;

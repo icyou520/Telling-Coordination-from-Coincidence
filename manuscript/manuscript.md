@@ -1,6 +1,7 @@
 # Telling coordination from coincidence: a no-interaction twin for collective systems
 
-**Eric J. Couture**
+**Eric J. Couture**  
+Independent researcher · ORCID [0009-0004-3523-3469](https://orcid.org/0009-0004-3523-3469)
 
 *Draft manuscript for peer review, {DATE}.*
 

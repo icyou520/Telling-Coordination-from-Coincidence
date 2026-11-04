@@ -4,6 +4,8 @@ title: "Emergence Lab: telling coordination from coincidence with a no-interacti
 authors:
   - family-names: Couture
     given-names: Eric J.
+    affiliation: Independent researcher
+    orcid: "https://orcid.org/0009-0004-3523-3469"
 version: "1.0.0"
 date-released: "2026-10-30"
 license: MIT
@@ -15,5 +17,7 @@ preferred-citation:
   authors:
     - family-names: Couture
       given-names: Eric J.
+      affiliation: Independent researcher
+      orcid: "https://orcid.org/0009-0004-3523-3469"
   year: 2026
   status: preprint
