@@ -160,6 +160,18 @@ interaction has shaped the behaviour of the specific group quantity being
 studied. Strong interactions can leave a quantity untouched: Section 3
 shows an example.
 
+**In information terms.** If both forecasts are read as bell-shaped
+(Gaussian) predictions, −½ ln(1 − S) is exactly the average information, in
+nats per forecast, that the real law carries about the group's future beyond
+the twin. A share of 0.03 is 0.022 bits per forecast; a share of 0.89 is 1.6
+bits. This is half of Geweke's (1982) classical measure of linear feedback,
+with the twin as the comparison model. Related ideas in information theory
+compare a whole system with a version whose parts are decoupled (stochastic
+interaction, Ay 2015; integrated information, Oizumi et al. 2016), and the
+twin is an intervention in the sense of Pearl (2009): fit a model, then set
+its interaction terms to zero. The share differs in scoring one group
+quantity, beyond recorded causes, with controls for real data.
+
 ### 2.3 The projected share for real data
 
 With real data the twin cannot be observed directly; it has to be built
@@ -1584,6 +1596,8 @@ pre-registered prediction is available on request.
 
 ## References
 
+* N. Ay (2015). Information geometry on complexity and stochastic
+  interaction. *Entropy* 17, 2432–2458. doi:10.3390/e17042432
 * L. Barnett, A. K. Seth (2023). Dynamical independence: discovering emergent
   macroscopic processes in complex dynamical systems. *Phys. Rev. E* 108,
   014304. doi:10.1103/PhysRevE.108.014304
@@ -1617,6 +1631,9 @@ pre-registered prediction is available on request.
 * K. R. French. Data library: 49 industry portfolios, daily; 25 size and
   book-to-market portfolios, daily, for Japan, Europe and Asia Pacific ex
   Japan. mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html.
+* J. Geweke (1982). Measurement of linear dependence and feedback between
+  multiple time series. *J. Am. Stat. Assoc.* 77, 304–313.
+  doi:10.1080/01621459.1982.10477803
 * C. W. J. Granger (1987). Implications of aggregation with common factors.
   *Econometric Theory* 3, 208–222. doi:10.1017/S0266466600010306
 * F. J. H. Heras, F. Romero-Ferrero, R. C. Hinz, G. G. de Polavieja (2019).
@@ -1653,9 +1670,14 @@ pre-registered prediction is available on request.
   *Commun. Math. Phys.* 252, 589–617. doi:10.1007/s00220-004-1222-4
 * M. Nagy, G. Vásárhelyi, B. Pettit, et al. (2013). Context-dependent
   hierarchies in pigeons. *PNAS* 110, 13049–13054. doi:10.1073/pnas.1305552110
+* M. Oizumi, N. Tsuchiya, S. Amari (2016). Unified framework for information
+  integration based on information geometry. *PNAS* 113, 14817–14822.
+  doi:10.1073/pnas.1603583113
 * L. Onsager (1944). Crystal statistics. I. A two-dimensional model with an
   order-disorder transition. *Phys. Rev.* 65, 117–149.
   doi:10.1103/PhysRev.65.117
+* J. Pearl (2009). *Causality: Models, Reasoning, and Inference*, 2nd edn.
+  Cambridge University Press, Cambridge. doi:10.1017/CBO9780511803161
 * B. Pettit, A. Perna, D. Biro, D. J. T. Sumpter (2013). Interaction rules
   underlying group decisions in homing pigeons. *J. R. Soc. Interface* 10,
   20130529. doi:10.1098/rsif.2013.0529

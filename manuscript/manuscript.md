@@ -15,7 +15,9 @@ share** S, the fraction of the forecast error of a system's *no-interaction twin
 (the same members with every interaction removed) that the real group law
 eliminates. We also introduce a projected estimator, S_proj, which has
 expectation zero without interaction even when the twin's law is not closed in the
-group variable. On linearly coupled walkers, S has a closed form: it is exactly
+group variable. Read as Gaussian forecasts, −½ ln(1 − S) is the expected
+Kullback–Leibler divergence of the real group law from the twin's, the
+information per forecast that interaction adds. On linearly coupled walkers, S has a closed form: it is exactly
 zero for the centre of mass at every coupling, and a machine-checked proof extends
 this to any pairwise force obeying Newton's third law. Across magnets,
 oscillators and flocking models it rises from 0 to about 1 where collective order
@@ -118,10 +120,23 @@ the self part, plays the role of our twin. To our knowledge these literatures
 do not cite each other, and none defines an interaction share against a
 no-interaction counterfactual.
 
+A third literature, in information theory, quantifies interaction as the
+divergence of a system from a model whose parts are decoupled: connected
+correlations in the information geometry of Amari (2001) and Schneidman et
+al. (2003), stochastic interaction (Ay 2015), and integrated information
+(Barrett and Seth 2011; Oizumi et al. 2016). Pearl's (2009) interventional
+framework supplies the counterfactual reading: fit a model, then set its
+interaction terms to zero. Our twin draws on both ideas, but the share scores
+a single group variable rather than the joint micro-level dynamics, and it is
+defined beyond recorded causes, with controls for real data (Section 2.7).
+Autonomy and interaction are complementary rather than opposed: the first asks
+whether a group variable has a law of its own, the second where that law comes
+from.
+
 We propose to measure interaction directly, against a counterfactual: the
 system's no-interaction twin. The contribution is sixfold:
-1. a definition and estimator (S, S_proj) with exact results and a formal proof
-   (Section 2, Section 3.1);
+1. a definition and estimator (S, S_proj) with exact results, a formal proof
+   and an information-theoretic reading (Section 2, Section 3.1);
 2. a validation protocol for real data, whose controls are themselves tested on
    known answers (Section 2.4), and an interventional test in which
    interaction is switched off experimentally (Section 3.3);
@@ -270,6 +285,48 @@ measured analysis, using the biased (positive-definite) autocovariance
 estimator, and is compared with a virtual floor: the same statistic on
 time-shifted members, or on trials permuted across members.
 
+### 2.7 An information-theoretic reading
+
+Read each forecast as a Gaussian predictive law with its own error variance:
+p = N(G, σ²) for the real group law and q = N(G⁰_proj, σ₀²) for the twin's,
+with σ² = MSE(G) and σ₀² = MSE(G⁰_proj). Because G is the least-squares
+forecast in a regression class that contains G⁰_proj, its error is orthogonal
+to G − G⁰_proj, so σ₀² = σ² + E[(G − G⁰_proj)²]. The Kullback–Leibler
+divergence between the two predictive laws, averaged over the group's past,
+then reduces to
+
+  I = E[D_KL(p ‖ q)] = ½ ln(σ₀²/σ²) + (σ² + E[(G − G⁰_proj)²])/(2σ₀²) − ½ = −½ ln(1 − S_proj).
+
+I is also the expected log-likelihood ratio of the real law over the twin's
+on the observed future: the information, in nats per forecast, that the
+interacting law carries about the group's future beyond the no-interaction
+twin. On eight simulated members coupled through their mean (in-sample fits),
+the three quantities agreed to five decimals. A share of 0.03 is 0.022 bits per forecast; 0.89 is 1.6 bits.
+With the twin as the restricted model, I is half of Geweke's (1982) linear
+feedback measure ln(σ₀²/σ²); for Gaussian variables Granger causality and
+transfer entropy coincide (Barnett et al. 2009), so I is a transfer-entropy-type
+quantity in which the twin takes the place of an omitted series.
+
+Three relations to information-geometric measures of interaction (Amari
+2001; Schneidman et al. 2003; Ay 2015; Oizumi et al. 2016) follow:
+
+- **A projection.** Stochastic interaction and geometric integrated
+  information Φ_G compare the joint micro-level dynamics with a split or
+  disconnected model. The share scores one group variable. For the centre of
+  mass of coupled walkers, S = I = 0 although the micro-level divergence is
+  positive (Section 3.1).
+- **Two twins.** For interchangeable members, the memory-gap twin of Section
+  2.6, in which each member's own transition is fitted inside the interacting
+  system, is the group-level image of Ay's split kernel. The isolated twin of
+  Section 2.3 instead sets the interaction terms of a fitted model to zero, an
+  intervention in Pearl's (2009) sense, closer to Φ_G's disconnected model. The
+  two differ exactly when members' own histories absorb interaction (Section
+  2.3; e77).
+- **An open bound.** If both laws conditioned on the full micro-level state,
+  the data-processing inequality would bound I by the micro-level divergence.
+  The real group law conditions only on the group's history and recorded
+  causes, so whether I is bounded by stochastic interaction is open.
+
 ## 3. Results
 
 ### 3.1 Exact results and a theorem
@@ -324,21 +381,14 @@ polarisation, and each fish's twin keeps wall avoidance, persistent turning and
 speed dynamics. Real schools scored S_proj 0.64–0.89 (adult fish) and
 0.18–0.62 (zebrafish), on a single chronological 70/30 split. Their virtual
 groups scored 0.00–0.05 and −0.10–0.02. Cross-fitted over interleaved blocks,
-which is robust to schools drifting within a recording (e77, Section 3.7),
+which is robust to schools drifting within a recording (e77, Supplementary S7),
 the same twins give 0.72–0.91 and 0.54–0.77.
 Synthetic loners scored −0.003, and synthetic schools were recovered exactly
 (Figure 3).
 
-Two earlier rounds failed and are reported:
-- **e31 (1/4):** the twin lacked persistent turning, which biased virtual groups.
-- **e32 (6/8):** the twin was not closed in polarisation, the case S_proj was
-  designed for.
-
-The final round passed 7/7 (adult fish) and 6/8 (zebrafish; the two misses
-were within 0.005 of threshold). For pigeon flocks (Nagy et al. 2013), no
-fitted model reproduced cohesion and the positive-control gate failed in all
-three rounds. Real flocks scored 0.5–0.9 against about 0 for virtual flocks,
-but no result is claimed.
+The final round passed 7/7 predictions (adult fish) and 6/8 (zebrafish). Two
+earlier rounds failed (e31, e32), and for pigeon flocks no fitted model reproduced
+cohesion, so the positive-control gate failed and no result is claimed (Supplementary S1).
 
 <figure>
 <img src="../whitepaper/figures/fig4_fish.svg" alt="Fish">
@@ -384,36 +434,13 @@ misses interaction (the limit found in e77).
   light and dark recordings.
 - **Controls.** Time-shifted and synthetic groups were clean.
 
-The iso twin's dark values (0.007–0.027) and its synthetic range (up to 0.038)
-reflect differences between individual fish, which a twin fitted on other fish
-cannot remove. A slower, differently parameterised clone (C1, 0.013) scored
-below C3, so the share also depends on the partner's kinematics. Only C2
-against C3 isolates reciprocity.
+The twin built from fish recorded alone gives the same contrast; its caveats, and
+a slower virtual clone that scored below the one-way condition, are discussed in
+Supplementary S2.
 
-**A graded test in large schools (e83).** Lafoux et al. (2023) filmed schools
-of about 50 rummy-nose tetras for 50 minutes at eight fixed light levels
-(0–900 lux).
-- **Method.** FastTrack identities last a median of 4–80 s per recording, so
-  we estimated the memory gap from short-lag statistics:
-  - member autocovariance from pairs of frames within a track;
-  - cross-covariance from pairs of tracks that coexist in time;
-  - g = n·o + n(n−1)·c with n = 50.
-
-  On simulated 50-fish schools with tracks broken in the same way, this
-  recovered the full-identity gap within 0.011.
-- **Result: no dose–response.** The pre-registered prediction failed: the
-  Spearman correlation between light and share was −0.14 (15 recordings).
-  Every school scored 0.10–0.28, darkness included (0.14, 0.23); time-shifted
-  versions scored ≤ 0.0013.
-- **Why (exploratory).** Velocity correlation between dark fish fell with
-  distance, from 0.28–0.43 under one body length to about zero beyond 20,
-  close to the lit profile. Light mainly changed dispersion: 9–30% of pairs
-  were over 20 body lengths apart in the dark, against 2–4% when lit. Local
-  interaction therefore persisted at "0 ± 0.1 lux", through the lateral line
-  or residual light, so this design does not switch interaction off. It
-  differs from e80 in species, group size and kind of darkness (a
-  projector's black rather than infrared), so the contrast does not isolate
-  any one of them.
+A graded test in schools of about 50 rummy-nose tetras at eight fixed light levels
+(e83) failed its prediction, because local coordination persisted in the dark
+(Supplementary S3).
 
 ### 3.4 Is a school a level? Closure and steering
 
@@ -432,20 +459,9 @@ This rediscovers known leadership effects (Bumann and Krause 1993; Katz et al.
 zebrafish the map's structure replicated in 9 of 9 groups, but its strength
 depended on the test segment. Pigeon flocks were closed in their turn at 1 s.
 
-These experiments tested on the last 30% of each recording. A pre-registered
-audit (e78, 10/11) reran all seven with the test moved to the first or the
-middle 30%, with every fitting stage moved too; the original segment
-reproduced every published number exactly. Shape and motion stayed closed
-(G(shape) < 0.05 in 17 of 18 school-segments), the turn stayed open
-(0.08–0.25), and front fish steered in every segment. Of the 24 real-data
-verdicts, 20 and 22 were unchanged. The zebrafish strength was confirmed in
-8 of 9 groups early in the recordings, against 3 and 2 of 9 later. The one
-failure was a calibration I had misclassed as simulation-only. Seven
-further pre-registered experiments tested where levels stay open:
-- the hypothesis that levels stay open along neutral directions failed;
-- in oscillators, a group is open exactly when some member is measurably
-  loose, and those members carry the information (21/21);
-- flocks and fish show no such members.
+A pre-registered audit that moved the test segment (e78) left these verdicts
+intact. Seven further experiments on where levels stay open are summarised in
+Supplementary S4.
 
 <figure>
 <img src="../whitepaper/figures/fig5_closure.svg" alt="Closure">
@@ -479,6 +495,429 @@ The calibrated closure test (e63, 4/7) showed that an area's top three
 components with recorded causes are nearly closed: the rest of the area adds
 G = 0.012 at 50 ms and 0.003 at 200 ms, and other areas add 0.011. Null
 features gave exactly 0 in 221 of 221 areas.
+
+**Motor cortex.** With all ~270 control trials per session, anterior lateral
+motor cortex (ALM; Inagaki et al. 2022) shows a small share in the 1.5 s
+before the go cue. Pre-registered on 19 never-analysed sessions (e71, 9/10), the
+median S_proj was 0.013 (positive in 16/19; memory-gap prediction 0.016,
+Spearman 0.86; virtual groups within ±0.005). It replicated unchanged in a
+second laboratory (Economo et al. 2018; e73, 7/7): median 0.026, positive in
+19/19. Silencing the midbrain input (PPN/MRN) left it unchanged, but the test was
+underpowered; a decisive one needs roughly 100–300 silenced trials per session.
+The silencing designs, including one that failed calibration (e64), are in
+Supplementary S5.
+
+<figure>
+<img src="../whitepaper/figures/fig8_brain.svg" alt="Brain">
+<figcaption><b>Figure 5.</b> Left: simulated networks with known answers.
+Middle: S_proj of 221 brain areas with nested recorded causes, and virtual
+groups. Right: closure gap of the area's summary state by horizon.</figcaption>
+</figure>
+
+### 3.6 Market volatility
+
+The members are 49 US industry portfolios (French data library; 13,801 days,
+1972–2026), each measured by its daily |return|. The group is their mean. The
+twin is each industry's HAR volatility forecast (Corsi 2009) plus day-of-week
+effects, cross-fitted over 250-day blocks.
+
+The simulated GARCH markets (Bollerslev 1986) were developed on separate seeds,
+then pre-registered:
+- independent markets and markets with correlated shocks scored 0;
+- volatility spillover between members scored 0.020–0.036;
+- a common GARCH volatility driver with loading 0.8 was **not** counted
+  (0.000–0.003).
+
+Because each member's own history reveals the common state, every twin learns
+it. On raw |return| the real market scored S_proj = −0.005 [−0.011, +0.002],
+with clean virtual groups. It scored no higher in 1972–1997 (−0.014) or
+1998–2026 (0.000), and no higher in turbulent years (rank correlation 0.12;
+Figure 6). A replication on 467 stocks over 2013–2018 is void. Over five
+years, time shifts of 500–759 days could not break the stocks' shared
+episodes, and the virtual groups scored about 0.5.
+
+The memory-gap identity (Section 3.7) predicted +0.016 for this market, not 0.
+The discrepancy traced to heavy tails: on raw |return| a few crash days
+dominate the out-of-sample error. On log volatility, log(|r| + 0.05), the
+measured share was +0.013. Because that was found after the fact, it was
+tested as a new pre-registered experiment (e69) on data not previously
+analysed:
+
+| Data | S_proj, log volatility [90%] | S_pred | S_proj, raw | virtual (log) |
+| --- | --- | --- | --- | --- |
+| 40 industries, 1936–1971 (holdout) | +0.029 [+0.017, +0.041] | +0.028 | +0.012 | −0.004 to −0.001 |
+| 49 industries, equal-weighted, 1972–2026 | +0.017 [+0.010, +0.024] | +0.019 | −0.003 | −0.002 to +0.004 |
+| 49 industries, value-weighted, 1972–2026 | +0.013 [+0.006, +0.020] | +0.015 | −0.005 | −0.001 to 0.000 |
+
+All five predictions passed: a positive holdout share, agreement with S_pred
+within 0.01, clean virtual groups, replication on equal-weighted portfolios,
+and a smaller raw share. US market volatility therefore carries a small but
+genuine coordination share. These estimates are slightly low because of the
+leak described in Section 3.7 (e76); leak-free, the holdout share is 0.031
+(S_pred 0.028) and equal-weighted 1972–2026 is 0.019 (S_pred 0.019). The share cannot say whether it reflects
+spillover or a slow common driver that members reveal poorly.
+
+**Individual firms (e79, 8/9).** A portfolio's volatility history reveals the
+market's state well, so by the simulations above it should hide
+coordination that individual firms show. The 2013–2018 stock set was too
+short, so we used Yahoo Finance daily prices from 2000 to 2026 for today's
+members of eight indices: 17–40 firms per market with a full history,
+survivors only. We ran the leak-free pipeline unchanged.
+- Firms gave S_proj = 0.015–0.079 in seven markets (lower bounds > 0);
+  Hong Kong (17 firms) gave 0.008 [−0.001, 0.022].
+- The firms exceeded the region's portfolios over the same dates in six of
+  seven comparisons. The UK, German and French firms gave 0.023–0.045,
+  against 0.002 for the European portfolios.
+- The memory gap was within 0.008 in every market, for mean and breadth,
+  with rank correlation 1.00.
+- The virtual groups were within ±0.004.
+- The one miss was a simulated-null tolerance (0.0055 against 0.003).
+
+That firms show more than portfolios is what aggregation theory leads one to
+expect (Granger 1987), and is consistent with a persistent common volatility
+component (Bollerslev et al. 2018). The new result is that the memory gap
+predicts its size in every market.
+
+Against the Diebold–Yilmaz spillover index, the share registers lagged spillover
+that the index misses and ignores same-day correlated shocks that the index
+counts; neither forecasts next month's volatility better than the other
+(Supplementary S6).
+
+<figure>
+<img src="../whitepaper/figures/fig9_markets.svg" alt="Markets">
+<figcaption><b>Figure 6.</b> Left: simulated markets with known answers
+(crosses: virtual groups). Right: S_proj of US market volatility by year (bars)
+and the market's turbulence (line), raw |return|.</figcaption>
+</figure>
+
+### 3.7 One equation across domains
+
+The memory-gap identity (Section 2.6) was tested in three pre-registered
+experiments and one exploratory screen (Figure 7).
+
+**Simulations and brain areas (e67, 7/8).**
+
+- In 52 linear simulations, S_pred matched the cross-fitted S_proj within
+  0.003. The simulations covered factor (common-input), mean-field and
+  local-coupling models across group sizes 10–200, and the match was equally
+  good for all three.
+- The pooling peak appeared as predicted.
+- In 14 GARCH and spiking-network simulations it matched within 0.02.
+- In the 221 brain areas of Section 3.5, S_pred matched S_proj (Spearman
+  0.97, median gap 0.006), and it reproduced the Poisson-twin results of e62
+  (Spearman 0.93).
+- The miss was raw market volatility, resolved in Section 3.6.
+
+**Beyond linear sums.** For fish, whose group variable (polarisation) is
+nonlinear, a quadratic memory gap built only from each fish's own memory ranks
+real schools by their measured share (e72, 6/6; Spearman 0.86) and, scored on
+the same cross-fitted blocks, runs 0.015–0.076 above a fully modelled twin
+(e77, 9/10). For any additive group variable the share is the linear memory
+gap of the transformed members; non-additive ones, such as the worst
+industry, need a simulated twin, which splits the share into same-day and
+dynamic coordination (e74, 10/10; e75, 5/10). An audit found that our
+cross-fitted estimator leaked test data through a stacked fitting stage,
+biasing market shares low by up to 0.024; leak-free, the memory gap matched the
+share within 0.004 on three never-analysed markets (e76, 10/12). Details,
+including every failed prediction, are in Supplementary S7.
+
+**A screen (e70, exploratory).** Requiring no twin, S_pred serves as a screen:
+
+- **Fish:** S_pred 0.10–0.64, with floors ≤ 0.003.
+- **ALM before the cue:** median 0.017 with floors ≤ 0.001. The full
+  cross-fitted measurement on the same trials gave 0.014 (Spearman 0.94).
+- **Pigeons:** faint (0.009–0.015 against floors of 0.003–0.007), consistent
+  with their closed turn at 1 s.
+- **Markets:** industries 0.015 and 0.028, stocks over five years 0.117, all
+  above their floors (≤ 0.009).
+
+The virtual floor shifts each member by its own offset, and the offsets must
+be spread over the whole record. The screen as first run drew them from its
+middle half. That moves every member by about half the record and keeps slow
+regimes aligned, which raised the market floors to 0.007–0.152 and made the
+stock screen look inconclusive. The fish and trial floors were unaffected.
+
+<figure>
+<img src="../whitepaper/figures/fig10_memorygap.svg" alt="Memory gap">
+<figcaption><b>Figure 7.</b> Left: S_pred from two memory curves against
+cross-fitted S_proj for simulations, brain areas, ALM, markets (log
+volatility) and fish (quadratic form; triangles: real schools; crosses:
+virtual groups). ALM includes the 19 unseen sessions of e71 and the 19
+Economo sessions of e73; markets include breadth (e74). The dashed line is equality. Right: S_pred as a screen of every dataset,
+with virtual floors (grey crosses) as first computed; the market and pigeon
+floors are lower with whole-record shifts (see text).</figcaption>
+</figure>
+
+### 3.8 Testing the extremes
+
+Six experiments (e84–e89) applied the share and memory gap where the answer
+is known or where they might fail. Each was developed on one range, seed set
+or period, frozen by hash, and run once on held-out data.
+
+- **Criticality (e86, 4/5).** In the 2D Ising model the memory gap peaks at
+  the transition (0.68, 0.79 and 0.89 for L = 16, 32 and 64), and the peak
+  moves towards T_c = 2.269 (Onsager 1944). Time-shifted lattices failed their
+  control near T_c (up to 0.094), because of critical slowing down.
+- **Group size (e88, 6/6).** Under one alignment rule from N = 2 to 10,000,
+  the share rises and levels off by N ≈ 30, matching an exact mean-field
+  formula within 0.011: it characterises the rule, not the group's size.
+- **Time reversal (e89, 5/5).** The memory gap is exactly time-symmetric and
+  the share nearly so (within 0.006); member influence is not (a planted
+  leader's 0.62 falls to 0.06–0.07 when time is reversed).
+- **Purely nonlinear dependence (e87, 5/5).** The share is blind to RANDU
+  (Marsaglia 1968), whose dependence leaves no linear trace, and detects a
+  cross-stream leak that a classical 3D uniformity test misses.
+- **The primes (e84, 9/9; e85, 8/8).** The memory gap recovers the negative
+  correlation of prime counts in neighbouring blocks (Montgomery and
+  Soundararajan 2004), but saves at most 0.3% of primality tests, against 47%
+  for one more divisibility filter, and nothing once all standard filters are
+  applied.
+
+<figure>
+<img src="../whitepaper/figures/fig11_extremes.svg" alt="Testing the extremes">
+<figcaption><b>Figure 8.</b> A: memory gap of the 2D Ising magnetization
+against temperature (L = 16, 32, 64; dashed: T_c). B: memory gap against
+group size for three neighbourhood rules, with the exact mean-field value
+(grey).
+C: S_proj (bars) and largest member influence (diamonds) forwards and time
+reversed. D: S_proj for eight streams from four generators (five seeds;
+dotted: mean no-coordination bar), with the verdict of a 20³ triple χ²
+test. E: additional primes per primality test from block memory, from an
+oracle that knows every block's count, and from one deeper trial-division
+filter. F: memory's gain near 10¹⁸ after trial division to each depth,
+with free and charged features; grey: ±3 matched random s.d.</figcaption>
+</figure>
+
+## 4. Discussion
+
+**Autonomy and interaction are complementary.** Closure and information-theoretic criteria
+ask whether a group variable has its own law. The interaction share asks
+whether interaction made it. The questions are distinct, and the answers can
+disagree in either direction:
+- the centre of mass of coupled walkers is autonomous but untouched by
+  interaction (S = 0);
+- the turn of a fish school is shaped by interaction (S_proj high) yet not
+  closed (G > 0).
+
+**What the share counts as coordination.** S_proj counts any predictable
+group-level structure that the members' own histories and recorded causes
+cannot supply. That includes local coupling, spillover and herding. It also
+includes an unrecorded common input, but only to the extent that members' own
+records reveal it poorly. With noisy spike counts, a shared drive is poorly
+revealed and is flagged at ten times the size of realistic coupling. With
+market volatility, a common driver is visible in every member and is not
+flagged. Which regime applies is a property of the domain and must be
+established by simulation before real data are read. We regard this as the
+measure's main interpretive limit, and also as a precise statement of what it
+means for a group to be "more than its members".
+
+**One equation.** The memory gap explains why the domains differ. Brain areas
+over tens of milliseconds and market volatility over days both behave as
+levels whose members each carry most of the shared signal. Their group
+memory barely exceeds their members' memory, and the share is a few percent.
+In fish schools, interaction feeds the school's heading back into every fish,
+the school remembers far longer than its members, and the share is large.
+The method has found coordination where it is known to exist, lost it when
+interaction was switched off (e80), found small amounts where small amounts
+were expected, and has stated when it could not tell:
+pigeons, the e64 design, and the stock replication. The identity also turns
+the measure's interpretive limit into a theorem. A share built on linear
+forecasts sees only second-order memory, so no reanalysis of the same signals can separate
+common input from coupling; only recorded causes or intervention can.
+
+**At the extremes.** The stress tests of Section 3.8 locate the measure
+among known physics and mathematics. The memory gap behaves like a
+phase-transition marker. It is near zero when nothing moves together and
+when nothing interacts, largest at criticality, and it sharpens with
+system size. It is intensive in group size, so shares are comparable
+between groups of different sizes once neighbourhoods are full. Its
+second-order nature has two corollaries that hold beyond linear systems:
+the share is blind to the arrow of time, and to dependence with no linear
+trace (RANDU). The first is covered by the influence decomposition and the
+second needs nonlinear features or classical tests. The primes give a
+clean negative with working controls: the gap recovers genuine
+number-theoretic structure, but that structure is worth fractions of a
+percent next to divisibility.
+
+**Limitations.**
+
+- **Identifiable twin.** The twin must be identifiable (it was not for pigeons).
+- **State dependence.** S_proj can depend slightly on the states used to fit
+  G⁰_proj (at most 0.055).
+- **Long series.** Virtual groups need series long compared with shared
+  episodes.
+- **Small samples.** Small samples around sharp events mimic shared input.
+- **Heavy tails.** In heavy-tailed data a few extreme values can dominate the
+  error and hide a share; transforms should be pre-registered.
+- **Nonlinear group variables.** The memory-gap identity is exact for
+  linear laws and sums of any member transform. A quadratic form handles
+  alignment-type variables and runs about 0.03 above a fully modelled
+  fish twin. When members lock onto the group, the memory gap misses
+  interaction a model of the isolated member would count (e77).
+  Non-additive variables need a Monte Carlo twin. It is exact only when
+  members are modelled in the variable where their randomness lives
+  (e75).
+- **Stacked cross-fitting.** Every fitted stage must exclude the test
+  data. Our estimator did not, which biased market shares low until e76;
+  trial-based neural estimates were barely affected. A single chronological
+  split is pessimistic for drifting recordings (e77); the fish closure
+  verdicts do not depend on it, but zebrafish turning strength does (e78).
+- **Perturbation power.** ALM's confirmed share (1.3–2.6%) is below what
+  ~40 silenced trials per session resolve; no public dataset has the
+  roughly 100–300 needed. Its origin is open.
+- **Surviving firms.** The individual-firm panel contains only today's index
+  members with full histories (e79).
+- **Interventional scope.** Interaction was switched off experimentally only
+  in zebrafish groups of two and three, and made one-way in tetra pairs (e80); larger groups and other domains rest
+  on observational controls. In 50-fish schools, the dark condition left
+  local coordination intact, so no graded test was possible (e83).
+- **Forecaster class.** Closure is relative to a forecaster class, made
+  trustworthy by calibration but not absolute.
+- **Second-order blindness.** The share is (nearly) time-symmetric and
+  misses dependence with no linear correlation (e87, e89).
+- **Information reading.** The identity −½ ln(1 − S) = I holds for Gaussian
+  predictive laws in a shared regression class; for heavy-tailed or nonlinear
+  forecasts it is an approximation, and its relation to micro-level
+  stochastic interaction is unproven (Section 2.7).
+- **Critical slowing down.** Near a phase transition, virtual-group floors
+  need records far longer than the slowest relaxation time (e86).
+- **Prior art.** The one-lag formula or its exchangeable-member form may
+  appear in the aggregation literature (Lütkepohl 1987); our search found
+  the comparison but not this formula, and was not exhaustive.
+
+**Pre-registration.** Of {N_EXP} experiments in the record, {N_SCORED} have
+numeric scorecards, totalling {N_PASS} of {N_PRED} predictions passed. The
+failures were as informative as the passes:
+- the Ψ false positive (e8);
+- a twin that absorbed interaction (e24);
+- the unprojected share (e30);
+- the pigeon gate (e35–e37);
+- a diverging neural twin (e61);
+- a cue-locked artefact (e64);
+- short-series virtual groups (e66);
+- heavy tails hiding the market share (e67, confirmed by e69);
+- the size of the share for a nonlinear group variable (e68, resolved by the
+  quadratic form in e72);
+- a contagion-of-extremes hypothesis that passed by 0.001 and reversed on
+  replication (e74);
+- an approximate Monte Carlo twin (e74, fixed in e75), and real-data
+  claims about rare events that did not hold on short series (e75);
+- a test-data leak in the cross-fitted estimator, found because the memory
+  gap disagreed with it (e76);
+- fish shares depressed by a chronological split, found the same way (e77);
+- a calibration check misclassed as simulation-only in the test-segment audit
+  (e78);
+- a virtual-lattice floor of 0.094 at the Ising critical point (e86).
+
+## Data and code availability
+
+All data are public:
+- Puy et al. (2024), Zenodo 10890112;
+- Heras et al. (2019);
+- Liu and Burbano (2025), Zenodo 15351451;
+- Escobedo et al. (2026), figshare 30539666;
+- Lafoux et al. (2023), figshare 22434919;
+- Nagy et al. (2013);
+- Steinmetz et al. (2019);
+- DANDI 000221 (Inagaki et al. 2022);
+- DANDI 000006 (Economo et al. 2018);
+- the Kenneth French data library (US industries; Japan, Europe and Asia
+  Pacific size × book-to-market portfolios);
+- plotly/datasets (S&P 500, 2013–2018);
+- Yahoo Finance daily adjusted closes (2000–2026) for index constituents
+  listed on Wikipedia (fetched 30 October 2026; lists in
+  `data/stocks/constituents.json` and `data/stocks_fresh/constituents.json`).
+
+The experiments of Section 3.8 need no external data: primes come from an
+exact segmented sieve checked against Miller–Rabin, and the rest are
+simulations, apart from the French industry portfolios reused in e89.
+
+Every experiment is a script runnable with `uv run python run.py <key>`, with
+results, figures and the SHA-256 pre-registration log in the repository
+(github.com/icyou520/Telling-Coordination-from-Coincidence; archived at
+doi:10.5281/zenodo.23934342). The
+Lean proofs are in `lean/`. A general-purpose implementation for any panel
+of time series, `twinshare` (MIT licence, in `twinshare/`), adds a study file
+in which the analyst declares what counts as interaction and which shared
+causes are recorded, and runs the trust checks automatically. With the
+settings used here it reproduces the published market shares to 10⁻¹⁵.
+
+<div style="page-break-before: always"></div>
+
+## Supplementary Information
+
+Details of the experiments summarised in Sections 3.3–3.8, moved here so that the main
+text carries the principal results. Experiment numbers (eNN) follow the pre-registration
+record in the Appendix.
+
+### S1. Fish: earlier rounds and pigeon flocks
+
+Two earlier rounds failed and are reported:
+- **e31 (1/4):** the twin lacked persistent turning, which biased virtual groups.
+- **e32 (6/8):** the twin was not closed in polarisation, the case S_proj was
+  designed for.
+
+The final round passed 7/7 (adult fish) and 6/8 (zebrafish; the two misses
+were within 0.005 of threshold). For pigeon flocks (Nagy et al. 2013), no
+fitted model reproduced cohesion and the positive-control gate failed in all
+three rounds. Real flocks scored 0.5–0.9 against about 0 for virtual flocks,
+but no result is claimed.
+
+### S2. Switching interaction off: the twin built from fish recorded alone
+
+The iso twin's dark values (0.007–0.027) and its synthetic range (up to 0.038)
+reflect differences between individual fish, which a twin fitted on other fish
+cannot remove. A slower, differently parameterised clone (C1, 0.013) scored
+below C3, so the share also depends on the partner's kinematics. Only C2
+against C3 isolates reciprocity.
+
+### S3. A graded test in large schools (e83)
+
+Lafoux et al. (2023) filmed schools
+of about 50 rummy-nose tetras for 50 minutes at eight fixed light levels
+(0–900 lux).
+- **Method.** FastTrack identities last a median of 4–80 s per recording, so
+  we estimated the memory gap from short-lag statistics:
+    - member autocovariance from pairs of frames within a track;
+    - cross-covariance from pairs of tracks that coexist in time;
+    - g = n·o + n(n−1)·c with n = 50.
+
+    On simulated 50-fish schools with tracks broken in the same way, this
+  recovered the full-identity gap within 0.011.
+
+- **Result: no dose–response.** The pre-registered prediction failed: the
+  Spearman correlation between light and share was −0.14 (15 recordings).
+  Every school scored 0.10–0.28, darkness included (0.14, 0.23); time-shifted
+  versions scored ≤ 0.0013.
+
+- **Why (exploratory).** Velocity correlation between dark fish fell with
+  distance, from 0.28–0.43 under one body length to about zero beyond 20,
+  close to the lit profile. Light mainly changed dispersion: 9–30% of pairs
+  were over 20 body lengths apart in the dark, against 2–4% when lit. Local
+  interaction therefore persisted at "0 ± 0.1 lux", through the lateral line
+  or residual light, so this design does not switch interaction off. It
+  differs from e80 in species, group size and kind of darkness (a
+  projector's black rather than infrared), so the contrast does not isolate
+  any one of them.
+
+### S4. Closure: test-segment audit and where levels stay open
+
+These experiments tested on the last 30% of each recording. A pre-registered
+audit (e78, 10/11) reran all seven with the test moved to the first or the
+middle 30%, with every fitting stage moved too; the original segment
+reproduced every published number exactly. Shape and motion stayed closed
+(G(shape) < 0.05 in 17 of 18 school-segments), the turn stayed open
+(0.08–0.25), and front fish steered in every segment. Of the 24 real-data
+verdicts, 20 and 22 were unchanged. The zebrafish strength was confirmed in
+8 of 9 groups early in the recordings, against 3 and 2 of 9 later. The one
+failure was a calibration I had misclassed as simulation-only. Seven
+further pre-registered experiments tested where levels stay open:
+- the hypothesis that levels stay open along neutral directions failed;
+- in oscillators, a group is open exactly when some member is measurably
+  loose, and those members carry the information (21/21);
+- flocks and fish show no such members.
+
+### S5. Motor cortex: silencing designs, replication and power
 
 To separate local coupling from upstream input, we analysed midbrain (PPN/MRN)
 silencing during motor-cortex (ALM) recordings (Inagaki et al. 2022; 21
@@ -544,76 +983,7 @@ simulations (interquartile and standard-deviation estimates). Scaling by
 that noise (exploratory) puts a decisive experiment at roughly 100–300
 silenced trials per session.
 
-<figure>
-<img src="../whitepaper/figures/fig8_brain.svg" alt="Brain">
-<figcaption><b>Figure 5.</b> Left: simulated networks with known answers.
-Middle: S_proj of 221 brain areas with nested recorded causes, and virtual
-groups. Right: closure gap of the area's summary state by horizon.</figcaption>
-</figure>
-
-### 3.6 Market volatility
-
-The members are 49 US industry portfolios (French data library; 13,801 days,
-1972–2026), each measured by its daily |return|. The group is their mean. The
-twin is each industry's HAR volatility forecast (Corsi 2009) plus day-of-week
-effects, cross-fitted over 250-day blocks.
-
-The simulated GARCH markets (Bollerslev 1986) were developed on separate seeds,
-then pre-registered:
-- independent markets and markets with correlated shocks scored 0;
-- volatility spillover between members scored 0.020–0.036;
-- a common GARCH volatility driver with loading 0.8 was **not** counted
-  (0.000–0.003).
-
-Because each member's own history reveals the common state, every twin learns
-it. On raw |return| the real market scored S_proj = −0.005 [−0.011, +0.002],
-with clean virtual groups. It scored no higher in 1972–1997 (−0.014) or
-1998–2026 (0.000), and no higher in turbulent years (rank correlation 0.12;
-Figure 6). A replication on 467 stocks over 2013–2018 is void. Over five
-years, time shifts of 500–759 days could not break the stocks' shared
-episodes, and the virtual groups scored about 0.5.
-
-The memory-gap identity (Section 3.7) predicted +0.016 for this market, not 0.
-The discrepancy traced to heavy tails: on raw |return| a few crash days
-dominate the out-of-sample error. On log volatility, log(|r| + 0.05), the
-measured share was +0.013. Because that was found after the fact, it was
-tested as a new pre-registered experiment (e69) on data not previously
-analysed:
-
-| Data | S_proj, log volatility [90%] | S_pred | S_proj, raw | virtual (log) |
-| --- | --- | --- | --- | --- |
-| 40 industries, 1936–1971 (holdout) | +0.029 [+0.017, +0.041] | +0.028 | +0.012 | −0.004 to −0.001 |
-| 49 industries, equal-weighted, 1972–2026 | +0.017 [+0.010, +0.024] | +0.019 | −0.003 | −0.002 to +0.004 |
-| 49 industries, value-weighted, 1972–2026 | +0.013 [+0.006, +0.020] | +0.015 | −0.005 | −0.001 to 0.000 |
-
-All five predictions passed: a positive holdout share, agreement with S_pred
-within 0.01, clean virtual groups, replication on equal-weighted portfolios,
-and a smaller raw share. US market volatility therefore carries a small but
-genuine coordination share. These estimates are slightly low because of the
-leak described in Section 3.7; leak-free, the holdout share is 0.031
-(S_pred 0.028) and equal-weighted 1972–2026 is 0.019 (S_pred 0.019). The share cannot say whether it reflects
-spillover or a slow common driver that members reveal poorly.
-
-**Individual firms (e79, 8/9).** A portfolio's volatility history reveals the
-market's state well, so by the simulations above it should hide
-coordination that individual firms show. The 2013–2018 stock set was too
-short, so we used Yahoo Finance daily prices from 2000 to 2026 for today's
-members of eight indices: 17–40 firms per market with a full history,
-survivors only. We ran the leak-free pipeline unchanged.
-- Firms gave S_proj = 0.015–0.079 in seven markets (lower bounds > 0);
-  Hong Kong (17 firms) gave 0.008 [−0.001, 0.022].
-- The firms exceeded the region's portfolios over the same dates in six of
-  seven comparisons. The UK, German and French firms gave 0.023–0.045,
-  against 0.002 for the European portfolios.
-- The memory gap was within 0.008 in every market, for mean and breadth,
-  with rank correlation 1.00.
-- The virtual groups were within ±0.004.
-- The one miss was a simulated-null tolerance (0.0055 against 0.003).
-
-That firms show more than portfolios is what aggregation theory leads one to
-expect (Granger 1987), and is consistent with a persistent common volatility
-component (Bollerslev et al. 2018). The new result is that the memory gap
-predicts its size in every market.
+### S6. Against the Diebold–Yilmaz spillover index
 
 **Against the Diebold–Yilmaz index.** We compared the memory gap with the
 total spillover index (Diebold & Yilmaz 2012; VAR(1), generalized variance
@@ -643,30 +1013,7 @@ decomposition at horizon 10), both pre-registered.
 The index used daily absolute returns here, not the intraday range of the
 original, which may disadvantage it.
 
-<figure>
-<img src="../whitepaper/figures/fig9_markets.svg" alt="Markets">
-<figcaption><b>Figure 6.</b> Left: simulated markets with known answers
-(crosses: virtual groups). Right: S_proj of US market volatility by year (bars)
-and the market's turbulence (line), raw |return|.</figcaption>
-</figure>
-
-### 3.7 One equation across domains
-
-The memory-gap identity (Section 2.6) was tested in three pre-registered
-experiments and one exploratory screen (Figure 7).
-
-**Simulations and brain areas (e67, 7/8).**
-
-- In 52 linear simulations, S_pred matched the cross-fitted S_proj within
-  0.003. The simulations covered factor (common-input), mean-field and
-  local-coupling models across group sizes 10–200, and the match was equally
-  good for all three.
-- The pooling peak appeared as predicted.
-- In 14 GARCH and spiking-network simulations it matched within 0.02.
-- In the 221 brain areas of Section 3.5, S_pred matched S_proj (Spearman
-  0.97, median gap 0.006), and it reproduced the Poisson-twin results of e62
-  (Spearman 0.93).
-- The miss was raw market volatility, resolved in Section 3.6.
+### S7. The memory gap for nonlinear and non-additive group variables, and the leak audit
 
 **Fish schools (e68, 3/4).** Fish are outside the identity's guarantee. Their
 S_proj used nonlinear twins and polarisation, a nonlinear group variable.
@@ -827,38 +1174,7 @@ example 0.015 against 0.016 on equal-weighted 1972–2026). For any additive
 group variable, rare-event members included, the memory gap is an estimate
 of the share.
 
-**A screen (e70, exploratory).** Requiring no twin, S_pred serves as a screen:
-
-- **Fish:** S_pred 0.10–0.64, with floors ≤ 0.003.
-- **ALM before the cue:** median 0.017 with floors ≤ 0.001. The full
-  cross-fitted measurement on the same trials gave 0.014 (Spearman 0.94).
-- **Pigeons:** faint (0.009–0.015 against floors of 0.003–0.007), consistent
-  with their closed turn at 1 s.
-- **Markets:** industries 0.015 and 0.028, stocks over five years 0.117, all
-  above their floors (≤ 0.009).
-
-The virtual floor shifts each member by its own offset, and the offsets must
-be spread over the whole record. The screen as first run drew them from its
-middle half. That moves every member by about half the record and keeps slow
-regimes aligned, which raised the market floors to 0.007–0.152 and made the
-stock screen look inconclusive. The fish and trial floors were unaffected.
-
-<figure>
-<img src="../whitepaper/figures/fig10_memorygap.svg" alt="Memory gap">
-<figcaption><b>Figure 7.</b> Left: S_pred from two memory curves against
-cross-fitted S_proj for simulations, brain areas, ALM, markets (log
-volatility) and fish (quadratic form; triangles: real schools; crosses:
-virtual groups). ALM includes the 19 unseen sessions of e71 and the 19
-Economo sessions of e73; markets include breadth (e74). The dashed line is equality. Right: S_pred as a screen of every dataset,
-with virtual floors (grey crosses) as first computed; the market and pigeon
-floors are lower with whole-record shifts (see text).</figcaption>
-</figure>
-
-### 3.8 Testing the extremes
-
-Six experiments (e84–e89) applied the share and memory gap where the answer
-is known or where they might fail. Each was developed on one range, seed set
-or period, frozen by hash, and run once on held-out data.
+### S8. Testing the extremes: details
 
 **Criticality (e86, 4/5).** In the 2D Ising model (heat-bath dynamics,
 spins as members, magnetization as the group variable; 40,000 sweeps after
@@ -928,173 +1244,13 @@ deeper filter saved 19–47%. A Buchstab-function calibration of the residual
 density matched the observed ratios (0.9909 against 0.9905, 0.9952 against
 0.9948), and a planted 3% block signal was recovered (+2.2%, +1.7%).
 
-<figure>
-<img src="../whitepaper/figures/fig11_extremes.svg" alt="Testing the extremes">
-<figcaption><b>Figure 8.</b> A: memory gap of the 2D Ising magnetization
-against temperature (L = 16, 32, 64; dashed: T_c). B: memory gap against
-group size for three neighbourhood rules, with the exact mean-field value
-(grey).
-C: S_proj (bars) and largest member influence (diamonds) forwards and time
-reversed. D: S_proj for eight streams from four generators (five seeds;
-dotted: mean no-coordination bar), with the verdict of a 20³ triple χ²
-test. E: additional primes per primality test from block memory, from an
-oracle that knows every block's count, and from one deeper trial-division
-filter. F: memory's gain near 10¹⁸ after trial division to each depth,
-with free and charged features; grey: ±3 matched random s.d.</figcaption>
-</figure>
-
-## 4. Discussion
-
-**Autonomy is not interaction.** Closure and information-theoretic criteria
-ask whether a group variable has its own law. The interaction share asks
-whether interaction made it, and the two can disagree in either direction:
-- the centre of mass of coupled walkers is autonomous but untouched by
-  interaction (S = 0);
-- the turn of a fish school is shaped by interaction (S_proj high) yet not
-  closed (G > 0).
-
-**What the share counts as coordination.** S_proj counts any predictable
-group-level structure that the members' own histories and recorded causes
-cannot supply. That includes local coupling, spillover and herding. It also
-includes an unrecorded common input, but only to the extent that members' own
-records reveal it poorly. With noisy spike counts, a shared drive is poorly
-revealed and is flagged at ten times the size of realistic coupling. With
-market volatility, a common driver is visible in every member and is not
-flagged. Which regime applies is a property of the domain and must be
-established by simulation before real data are read. We regard this as the
-measure's main interpretive limit, and also as a precise statement of what it
-means for a group to be "more than its members".
-
-**One equation.** The memory gap explains why the domains differ. Brain areas
-over tens of milliseconds and market volatility over days both behave as
-levels whose members each carry most of the shared signal. Their group
-memory barely exceeds their members' memory, and the share is a few percent.
-In fish schools, interaction feeds the school's heading back into every fish,
-the school remembers far longer than its members, and the share is large.
-The method has found coordination where it is known to exist, lost it when
-interaction was switched off (e80), found small amounts where small amounts
-were expected, and has stated when it could not tell:
-pigeons, the e64 design, and the stock replication. The identity also turns
-the measure's interpretive limit into a theorem. A share built on linear
-forecasts sees only second-order memory, so no reanalysis of the same signals can separate
-common input from coupling; only recorded causes or intervention can.
-
-**At the extremes.** The stress tests of Section 3.8 locate the measure
-among known physics and mathematics. The memory gap behaves like a
-phase-transition marker. It is near zero when nothing moves together and
-when nothing interacts, largest at criticality, and it sharpens with
-system size. It is intensive in group size, so shares are comparable
-between groups of different sizes once neighbourhoods are full. Its
-second-order nature has two corollaries that hold beyond linear systems:
-the share is blind to the arrow of time, and to dependence with no linear
-trace (RANDU). The first is covered by the influence decomposition and the
-second needs nonlinear features or classical tests. The primes give a
-clean negative with working controls: the gap recovers genuine
-number-theoretic structure, but that structure is worth fractions of a
-percent next to divisibility.
-
-**Limitations.**
-
-- **Identifiable twin.** The twin must be identifiable (it was not for pigeons).
-- **State dependence.** S_proj can depend slightly on the states used to fit
-  G⁰_proj (at most 0.055).
-- **Long series.** Virtual groups need series long compared with shared
-  episodes.
-- **Small samples.** Small samples around sharp events mimic shared input.
-- **Heavy tails.** In heavy-tailed data a few extreme values can dominate the
-  error and hide a share; transforms should be pre-registered.
-- **Nonlinear group variables.** The memory-gap identity is exact for
-  linear laws and sums of any member transform. A quadratic form handles
-  alignment-type variables and runs about 0.03 above a fully modelled
-  fish twin. When members lock onto the group, the memory gap misses
-  interaction a model of the isolated member would count (e77).
-  Non-additive variables need a Monte Carlo twin. It is exact only when
-  members are modelled in the variable where their randomness lives
-  (e75).
-- **Stacked cross-fitting.** Every fitted stage must exclude the test
-  data. Our estimator did not, which biased market shares low until e76;
-  trial-based neural estimates were barely affected. A single chronological
-  split is pessimistic for drifting recordings (e77); the fish closure
-  verdicts do not depend on it, but zebrafish turning strength does (e78).
-- **Perturbation power.** ALM's confirmed share (1.3–2.6%) is below what
-  ~40 silenced trials per session resolve; no public dataset has the
-  roughly 100–300 needed. Its origin is open.
-- **Surviving firms.** The individual-firm panel contains only today's index
-  members with full histories (e79).
-- **Interventional scope.** Interaction was switched off experimentally only
-  in zebrafish groups of two and three, and made one-way in tetra pairs (e80); larger groups and other domains rest
-  on observational controls. In 50-fish schools, the dark condition left
-  local coordination intact, so no graded test was possible (e83).
-- **Forecaster class.** Closure is relative to a forecaster class, made
-  trustworthy by calibration but not absolute.
-- **Second-order blindness.** The share is (nearly) time-symmetric and
-  misses dependence with no linear correlation (e87, e89).
-- **Critical slowing down.** Near a phase transition, virtual-group floors
-  need records far longer than the slowest relaxation time (e86).
-- **Prior art.** The one-lag formula or its exchangeable-member form may
-  appear in the aggregation literature (Lütkepohl 1987); our search found
-  the comparison but not this formula, and was not exhaustive.
-
-**Pre-registration.** Of {N_EXP} experiments in the record, {N_SCORED} have
-numeric scorecards, totalling {N_PASS} of {N_PRED} predictions passed. The
-failures were as informative as the passes:
-- the Ψ false positive (e8);
-- a twin that absorbed interaction (e24);
-- the unprojected share (e30);
-- the pigeon gate (e35–e37);
-- a diverging neural twin (e61);
-- a cue-locked artefact (e64);
-- short-series virtual groups (e66);
-- heavy tails hiding the market share (e67, confirmed by e69);
-- the size of the share for a nonlinear group variable (e68, resolved by the
-  quadratic form in e72);
-- a contagion-of-extremes hypothesis that passed by 0.001 and reversed on
-  replication (e74);
-- an approximate Monte Carlo twin (e74, fixed in e75), and real-data
-  claims about rare events that did not hold on short series (e75);
-- a test-data leak in the cross-fitted estimator, found because the memory
-  gap disagreed with it (e76);
-- fish shares depressed by a chronological split, found the same way (e77);
-- a calibration check misclassed as simulation-only in the test-segment audit
-  (e78);
-- a virtual-lattice floor of 0.094 at the Ising critical point (e86).
-
-## Data and code availability
-
-All data are public:
-- Puy et al. (2024), Zenodo 10890112;
-- Heras et al. (2019);
-- Liu and Burbano (2025), Zenodo 15351451;
-- Escobedo et al. (2026), figshare 30539666;
-- Lafoux et al. (2023), figshare 22434919;
-- Nagy et al. (2013);
-- Steinmetz et al. (2019);
-- DANDI 000221 (Inagaki et al. 2022);
-- DANDI 000006 (Economo et al. 2018);
-- the Kenneth French data library (US industries; Japan, Europe and Asia
-  Pacific size × book-to-market portfolios);
-- plotly/datasets (S&P 500, 2013–2018);
-- Yahoo Finance daily adjusted closes (2000–2026) for index constituents
-  listed on Wikipedia (fetched 30 October 2026; lists in
-  `data/stocks/constituents.json` and `data/stocks_fresh/constituents.json`).
-
-The experiments of Section 3.8 need no external data: primes come from an
-exact segmented sieve checked against Miller–Rabin, and the rest are
-simulations, apart from the French industry portfolios reused in e89.
-
-Every experiment is a script runnable with `uv run python run.py <key>`, with
-results, figures and the SHA-256 pre-registration log in the repository
-(github.com/icyou520/Telling-Coordination-from-Coincidence; archived at
-doi:10.5281/zenodo.23934342). The
-Lean proofs are in `lean/`. A general-purpose implementation for any panel
-of time series, `twinshare` (MIT licence, in `twinshare/`), adds a study file
-in which the analyst declares what counts as interaction and which shared
-causes are recorded, and runs the trust checks automatically. With the
-settings used here it reproduces the published market shares to 10⁻¹⁵.
-
 ## References
 
+* S. Amari (2001). Information geometry on hierarchy of probability distributions. *IEEE Trans. Inf. Theory* 47, 1701–1711. doi:10.1109/18.930911
+* N. Ay (2015). Information geometry on complexity and stochastic interaction. *Entropy* 17, 2432–2458. doi:10.3390/e17042432
+* L. Barnett, A. B. Barrett, A. K. Seth (2009). Granger causality and transfer entropy are equivalent for Gaussian variables. *Phys. Rev. Lett.* 103, 238701. doi:10.1103/PhysRevLett.103.238701
 * L. Barnett, A. K. Seth (2023). Dynamical independence: discovering emergent macroscopic processes in complex dynamical systems. *Phys. Rev. E* 108, 014304. doi:10.1103/PhysRevE.108.014304
+* A. B. Barrett, A. K. Seth (2011). Practical measures of integrated information for time-series data. *PLOS Comput. Biol.* 7, e1001052. doi:10.1371/journal.pcbi.1001052
 * N. Bertschinger, E. Olbrich, N. Ay, J. Jost (2006). Information and closure in systems theory. In S. Artmann, P. Dittrich (eds), *Explorations in the Complexity of Possible Life*, 9–19. IOS Press, Amsterdam.
 * T. Bollerslev (1986). Generalized autoregressive conditional heteroskedasticity. *J. Econometrics* 31, 307–327. doi:10.1016/0304-4076(86)90063-1
 * T. Bollerslev, B. Hood, J. Huss, L. H. Pedersen (2018). Risk everywhere: modeling and managing volatility. *Rev. Financial Stud.* 31, 2729–2773. doi:10.1093/rfs/hhy041
@@ -1105,6 +1261,7 @@ settings used here it reproduces the published market shares to 10⁻¹⁵.
 * M. N. Economo, S. Viswanathan, et al. (2018). Distinct descending motor cortex pathways and their roles in movement. *Nature* 563, 79–84. doi:10.1038/s41586-018-0642-9
 * R. Escobedo, J. Reynaud, R. Bastien, S. Sanchez, C. Sire, G. Theraulaz (2026). Closed-loop real–virtual interactions validate 3D model of social coordination in fish. *PLOS Comput. Biol.* 22, e1014544. doi:10.1371/journal.pcbi.1014544
 * K. R. French. Data library: 49 industry portfolios, daily; 25 size and book-to-market portfolios, daily, for Japan, Europe and Asia Pacific ex Japan. mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html.
+* J. Geweke (1982). Measurement of linear dependence and feedback between multiple time series. *J. Am. Stat. Assoc.* 77, 304–313. doi:10.1080/01621459.1982.10477803
 * D. Golomb, D. Hansel (2000). The number of synaptic inputs and the synchrony of large, sparse neuronal networks. *Neural Comput.* 12, 1095–1139. doi:10.1162/089976600300015529
 * C. W. J. Granger (1980). Long memory relationships and the aggregation of dynamic models. *J. Econometrics* 14, 227–238. doi:10.1016/0304-4076(80)90092-5
 * C. W. J. Granger (1987). Implications of aggregation with common factors. *Econometric Theory* 3, 208–222. doi:10.1017/S0266466600010306
@@ -1123,13 +1280,16 @@ settings used here it reproduces the published market shares to 10⁻¹⁵.
 * G. Marsaglia (1968). Random numbers fall mainly in the planes. *PNAS* 61, 25–28. doi:10.1073/pnas.61.1.25
 * H. L. Montgomery, K. Soundararajan (2004). Primes in short intervals. *Commun. Math. Phys.* 252, 589–617. doi:10.1007/s00220-004-1222-4
 * M. Nagy, G. Vásárhelyi, B. Pettit, et al. (2013). Context-dependent hierarchies in pigeons. *PNAS* 110, 13049–13054. doi:10.1073/pnas.1305552110
+* M. Oizumi, N. Tsuchiya, S. Amari (2016). Unified framework for information integration based on information geometry. *PNAS* 113, 14817–14822. doi:10.1073/pnas.1603583113
 * L. Onsager (1944). Crystal statistics. I. A two-dimensional model with an order-disorder transition. *Phys. Rev.* 65, 117–149. doi:10.1103/PhysRev.65.117
+* J. Pearl (2009). *Causality: Models, Reasoning, and Inference*, 2nd edn. Cambridge University Press, Cambridge. doi:10.1017/CBO9780511803161
 * M. H. Pesaran, A. Chudik (2014). Aggregation in large dynamic panels. *J. Econometrics* 178, 273–285. doi:10.1016/j.jeconom.2013.08.027
 * M. H. Pesaran, R. G. Pierse, M. S. Kumar (1989). Econometric analysis of aggregation in the context of linear prediction models. *Econometrica* 57, 861–888. doi:10.2307/1913775
 * O. Pfante, N. Bertschinger, E. Olbrich, N. Ay, J. Jost (2014). Comparison between different methods of level identification. *Adv. Complex Syst.* 17, 1450007. doi:10.1142/S0219525914500076
 * A. Puy, E. Gimeno, J. Torrents, P. Bartashevich, M. C. Miguel, R. Pastor-Satorras, P. Romanczuk (2024). Selective social interactions and speed-induced leadership in schooling fish. *PNAS* 121, e2309733121. doi:10.1073/pnas.2309733121
 * F. E. Rosas, P. A. M. Mediano, H. J. Jensen, A. K. Seth, A. B. Barrett, R. L. Carhart-Harris, D. Bor (2020). Reconciling emergences: an information-theoretic approach to identify causal emergence in multivariate data. *PLOS Comput. Biol.* 16, e1008289. doi:10.1371/journal.pcbi.1008289
 * F. E. Rosas, B. C. Geiger, A. I. Luppi, A. K. Seth, D. Polani, M. Gastpar, P. A. M. Mediano (2024). Software in the natural world: a computational approach to hierarchical emergence. arXiv:2402.09090.
+* E. Schneidman, S. Still, M. J. Berry II, W. Bialek (2003). Network information and connected correlations. *Phys. Rev. Lett.* 91, 238701. doi:10.1103/PhysRevLett.91.238701
 * A. K. Seth (2010). Measuring autonomy and emergence via Granger causality. *Artificial Life* 16, 179–196. doi:10.1162/artl.2010.16.2.16204
 * N. A. Steinmetz, P. Zatka-Haas, M. Carandini, K. D. Harris (2019). Distributed coding of choice, action and engagement across the mouse brain. *Nature* 576, 266–273. doi:10.1038/s41586-019-1787-x
 * L. Van Hove (1954). Correlations in space and time and Born approximation scattering in systems of interacting particles. *Phys. Rev.* 95, 249–262. doi:10.1103/PhysRev.95.249

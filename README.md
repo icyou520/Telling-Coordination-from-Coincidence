@@ -27,7 +27,7 @@ on the Releases page.
 | Path | Contents |
 | --- | --- |
 | `manuscript/` | Peer-review manuscript (`manuscript.md`, PDF, `build.py`) |
-| `whitepaper/` | White paper v2.2 (`whitepaper.md`, PDF, figures, `build.py`) |
+| `whitepaper/` | White paper v2.3 (`whitepaper.md`, PDF, figures, `build.py`) |
 | `FINDINGS.md` | Every experiment: predictions, results, revisions, and the command that reproduces it |
 | `results/e39_preregistration.txt` | Pre-registration log: SHA-256 of each experiment's code (and fresh data) before it ran |
 | `verify_preregistration.py` | Checks the files against the log |
