@@ -230,7 +230,7 @@ EXPERIMENTS = {
                e78_split_audit.main),
     "stocks": ("Individual stocks in eight markets: coordination in volatility and the memory gap (needs data/stocks/)",
                e79_stocks.main),
-    "intervention": ("Switching interaction off: tetras in light and dark, real fish with virtual fish "
+    "intervention": ("Switching interaction off: zebrafish in light and dark, real fish with virtual fish "
                      "(needs data/intervention/)", e80_intervention.main),
     "spillover": ("The interaction share against the Diebold-Yilmaz spillover index, head to head (needs data/stocks/)",
                   e81_spillover.main),

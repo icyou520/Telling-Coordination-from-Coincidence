@@ -1,11 +1,12 @@
 """Experiment 80: switching interaction off. Does the share fall when the experimenter removes interaction?
 
 Every earlier result was observational. Here interaction is removed or weakened by the experimenter, on two public
-datasets of rummy-nose tetras (intervention_data):
-  light  Liu & Burbano (2025): pairs and triads in bright and dark arenas (vision removed; the lateral line remains),
-         and single fish in the same arenas, which give groups that certainly never interacted.
-  VR     Escobedo et al. (2025): a real fish with a virtual conspecific that responds to it (C1, C2) or ignores it
-         (C3: C2's clone, one-way); two real fish (2R).
+datasets (intervention_data):
+  light  Liu & Burbano (2025): zebrafish pairs and triads in bright and infrared-dark arenas (vision removed; the
+         lateral line remains), and single fish in the same arenas, which give groups that certainly never
+         interacted.
+  VR     Escobedo et al. (2025): a real rummy-nose tetra with a virtual conspecific that responds to it (C1, C2) or
+         ignores it (C3: C2's clone, one-way); two real fish (2R).
 
 Member variable: planar velocity at 10 Hz. Group variable: the members' summed velocity. Horizon 0.5 s; features are
 e67's windows before the target (memgap.default_windows(5)). Shares, cross-fitted over 30 s blocks in 3 folds with
@@ -18,7 +19,7 @@ For linear laws on sums the twin forecast is already a function of the group's f
 Controls: synthetic groups of single fish from different recordings (no interaction by construction; the iso twin
 leaves their own recordings out) and time-shifted virtual groups (memgap.shift).
 
-Development on simulated tetras only (seeds 801-804): fish with speed relaxation, wall avoidance in a round arena,
+Development on simulated fish only (seeds 801-804): fish with speed relaxation, wall avoidance in a round arena,
 persistent (Ornstein-Uhlenbeck) noise, and attraction plus alignment to neighbours (all-range: "bright"; within
 0.15 arena radii: "dark"; or one-way: member 1 ignores member 0), seen with a 0.2 s reaction delay. Individuals
 differ in speed and noise (+-30%). Development showed:
@@ -173,7 +174,7 @@ def boot(results, key, rng, n=400):
     return [float(np.quantile(v, 0.05)), float(np.quantile(v, 0.95))]
 
 
-# ---------------------------------------------------------------- simulated tetras
+# ---------------------------------------------------------------- simulated fish
 
 SIM = dict(dt=1 / 30, v0=0.25, relax=2.0, sigma=0.35, tau=0.5, wall=0.15, att=1.0, ali=1.5, dark_range=0.15,
            delay=0.2)
@@ -400,14 +401,14 @@ def predictions(res):
 
 def analyze(res) -> str:
     col = lambda rs, k: np.array([r[k] for r in rs])  # noqa: E731
-    lines = ["Experiment 80: switching interaction off", "", "  Simulated tetras (fresh seeds), medians:",
+    lines = ["Experiment 80: switching interaction off", "", "  Simulated fish (fresh seeds), medians:",
              "  N  rule       k     groups  S_member  S_iso   gap_member  gap_iso"]
     sim = res["sim"]
     for key in sorted({(r["n"], r["rule"], r["k"]) for r in sim}):
         rs = [r for r in sim if (r["n"], r["rule"], r["k"]) == key]
         lines.append(f"  {key[0]}  {key[1]:10} {key[2]:<4}  {len(rs):<6d}  " + "  ".join(
             f"{np.median(col(rs, k)):+.3f}  " for k in ("S_member", "S_iso", "gap_member", "gap_iso")))
-    lines += ["", "  Real tetras, light and dark (one row per recording):",
+    lines += ["", "  Real zebrafish, light and dark (one row per recording):",
               "  light   N  rec             S_member  S_iso    gap_member gap_iso  shifted"]
     for r in res["light"]:
         if r["kind"] == "real":

@@ -297,3 +297,9 @@ Sat Oct 31 01:46:59 UTC 2026
 e89 code (time reversal; predictions T1-T5 fixed after development on simulation seed 0 and value-weighted industries 1936-1971; final seeds 1-3 and equal-weighted industries 1972-2026 reversed; structure smoke test with seed 101 and the development market data):
 141dd8c0598be32d5a91c25443fb09ec92ccccf4ce3a918ec7ca2dda580c1f9a  experiments/e89_time_reversal.py
 f9de3a44ff90518dc3aeb2b1cdda8824331fbb3de00d725ce8aff2ae81f02bb1  experiments/e89_figures.py
+
+Wed Nov  4 01:30:31 UTC 2026
+e80 species correction (descriptions only): Liu & Burbano's light/dark fish are zebrafish (Danio rerio), not rummy-nose tetras; the VR fish (Escobedo et al.) are tetras. Docstrings and output labels changed; no code path, parameter or result changed (results/e80_intervention_raw.json untouched; all 15 predictions re-scored from it, identical):
+fd6e7f15c128cee355a02174fee9c60b3eefab006dbe073d37f27d535c981e3b  experiments/intervention_data.py
+ccf02827688a3d7d070522f6482484218999423048d2bf9c784220362374c08f  experiments/e80_intervention.py
+3e29812c000e5146ad72d1553a81d4a37cd75388c4fc7fc95158c35a35e8a212  experiments/e80_figures.py

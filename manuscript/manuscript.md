@@ -23,7 +23,7 @@ appears. With safeguards against misspecification (time-shifted virtual groups,
 synthetic groups with known answers, a positive-control gate) it separates real
 fish schools (S_proj 0.54–0.91 cross-fitted, 17 recordings, two species) from
 virtual groups that never interacted (−0.10 to 0.07). When interaction is
-removed experimentally, the share follows. In the dark, tetra pairs and triads
+removed experimentally, the share follows. In the dark, zebrafish pairs and triads
 fall from 0.023 and 0.089 to zero, the level of fish recorded alone, and a
 virtual partner that stops responding lowers it from 0.063 to 0.019. We pair S
 with a calibrated closure test,
@@ -347,13 +347,14 @@ virtual group.</figcaption>
 </figure>
 
 **Switching interaction off (e80, 15/15).** Every result above compares a group
-with a constructed counterfactual. Two public experiments on rummy-nose tetras
-remove interaction physically. Liu and Burbano (2025) recorded pairs and triads
-in a lit and a dark arena; darkness removes vision and leaves the lateral line.
+with a constructed counterfactual. Two public experiments remove interaction
+physically. Liu and Burbano (2025) recorded zebrafish pairs and triads in a lit
+arena and in one lit only by infrared, which zebrafish cannot see; darkness
+removes vision and leaves the lateral line.
 They also recorded single fish alone in each condition. This gives synthetic
 groups of fish that never met, and an *iso twin* whose member law is fitted on
 fish recorded alone rather than modelled. Escobedo et al. (2026) paired a real
-fish with a virtual conspecific that either responds to it (C2) or, with the
+rummy-nose tetra with a virtual conspecific that either responds to it (C2) or, with the
 same parameters, ignores it (C3), so interaction is one-way.
 
 The members were planar velocities at 10 Hz and the group variable their sum,
@@ -379,8 +380,8 @@ misses interaction (the limit found in e77).
 - **Reciprocity.** With the virtual partner's behaviour fixed, removing its
   response lowered the share by 0.044 [0.036, 0.052], and one-way interaction
   remained detectable.
-- **Memory gap.** It matched the measured share within 0.01 in 37 of 38 tetra
-  recordings.
+- **Memory gap.** It matched the measured share within 0.01 in 37 of 38
+  light and dark recordings.
 - **Controls.** Time-shifted and synthetic groups were clean.
 
 The iso twin's dark values (0.007–0.027) and its synthetic range (up to 0.038)
@@ -390,7 +391,8 @@ below C3, so the share also depends on the partner's kinematics. Only C2
 against C3 isolates reciprocity.
 
 **A graded test in large schools (e83).** Lafoux et al. (2023) filmed schools
-of about 50 tetras for 50 minutes at eight fixed light levels (0–900 lux).
+of about 50 rummy-nose tetras for 50 minutes at eight fixed light levels
+(0–900 lux).
 - **Method.** FastTrack identities last a median of 4–80 s per recording, so
   we estimated the memory gap from short-lag statistics:
   - member autocovariance from pairs of frames within a track;
@@ -408,7 +410,10 @@ of about 50 tetras for 50 minutes at eight fixed light levels (0–900 lux).
   close to the lit profile. Light mainly changed dispersion: 9–30% of pairs
   were over 20 body lengths apart in the dark, against 2–4% when lit. Local
   interaction therefore persisted at "0 ± 0.1 lux", through the lateral line
-  or residual light, so this design does not switch interaction off.
+  or residual light, so this design does not switch interaction off. It
+  differs from e80 in species, group size and kind of darkness (a
+  projector's black rather than infrared), so the contrast does not isolate
+  any one of them.
 
 ### 3.4 Is a school a level? Closure and steering
 
@@ -1017,7 +1022,7 @@ percent next to divisibility.
 - **Surviving firms.** The individual-firm panel contains only today's index
   members with full histories (e79).
 - **Interventional scope.** Interaction was switched off experimentally only
-  in fish groups of two and three (e80); larger groups and other domains rest
+  in zebrafish groups of two and three, and made one-way in tetra pairs (e80); larger groups and other domains rest
   on observational controls. In 50-fish schools, the dark condition left
   local coordination intact, so no graded test was possible (e83).
 - **Forecaster class.** Closure is relative to a forecaster class, made

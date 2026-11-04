@@ -1,4 +1,4 @@
-"""Figures for e80 (switching interaction off: tetras in light and dark, and real fish with virtual fish).
+"""Figures for e80 (switching interaction off: zebrafish in light and dark, and real tetras with virtual fish).
 
     uv run python -m experiments.e80_figures      # redraw from results/*.json
 """
@@ -57,7 +57,7 @@ def vr(res, out):
 def against_gap(res, out):
     fig, ax = plt.subplots(figsize=(5.6, 5), layout="constrained")
     for rs, c, lab in ((res["sim"], GREY, "simulations"), ([r for r in res["light"] if r["kind"] == "real"], BLUE,
-                                                            "tetras, light and dark"), (res["vr"], ORANGE, "VR")):
+                                                            "zebrafish, light and dark"), (res["vr"], ORANGE, "VR")):
         ax.plot([r["gap_member"] for r in rs], [r["S_member"] for r in rs], "o", color=c, ms=4, alpha=0.7, label=lab)
     lim = max(0.05, max(max(r["S_member"], r["gap_member"]) for r in res["sim"] + res["light"] + res["vr"]))
     ax.plot([-0.01, lim], [-0.01, lim], color="black", lw=0.6)

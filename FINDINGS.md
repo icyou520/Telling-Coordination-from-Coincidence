@@ -1329,7 +1329,7 @@ Figures are in `results/e63_figures/`:
 
 ### e64: does a brain area's coordination survive switching off a major input?
 
-*Followed up by e80:* an intervention test that was decisive, on fish. Removing vision (dark arena) takes tetra pairs and triads from 0.023 and 0.089 to zero, and making a virtual partner ignore the real fish lowers the share from 0.063 to 0.019.
+*Followed up by e80:* an intervention test that was decisive, on fish. Removing vision (dark arena) takes zebrafish pairs and triads from 0.023 and 0.089 to zero, and making a virtual partner ignore the real fish lowers the share from 0.063 to 0.019.
 
 e62 could not tell coordination between neurons apart from an input nobody recorded. A perturbation can. Inagaki, Chen et al. (2022, DANDI 000221) recorded the anterior lateral motor cortex (ALM) while optogenetically silencing the midbrain (PPN/MRN) that drives it, from 0.6 s before to 0.6 s after the go cue. The prediction: if ALM's coordination comes from that input, its interaction share falls when the input is off. 21 sessions qualified (≥ 20 units, ≥ 20 silenced trials). The test used e62's twin and law, cross-fitted over trials, with control trials subsampled to the silenced count.
 
@@ -1946,9 +1946,9 @@ Figures are in `results/e79_figures/`:
 
 ### e80: switching interaction off
 
-Every result before this one was observational. Here the experimenter removes or weakens interaction, and the question is whether the share follows. Two public datasets of rummy-nose tetras (*Hemigrammus rhodostomus*), both new to this project:
-* **Light and dark** (Liu & Burbano 2025, Zenodo 15351451): 9–10 recordings each of pairs and triads in a bright and a dark arena (about 10.5 min, 33 Hz). Darkness removes vision; the lateral line remains. Ten fish were also recorded alone in each light, which gives two things no earlier dataset had: groups of single fish that certainly never interacted (synthetic groups), and a twin built from the measured behaviour of a fish without a partner (the iso twin).
-* **Virtual reality** (Escobedo et al. 2026, figshare 30539666): a real fish with a virtual conspecific that responds to it (C1; C2, a faster clone), the same C2 clone made independent of the real fish (C3, one-way interaction), and pairs of real fish (2R). Continuous intervals of at least 30 s; 6–21 experiments per condition.
+Every result before this one was observational. Here the experimenter removes or weakens interaction, and the question is whether the share follows. Two public datasets, both new to this project (species corrected on 3 November 2026; the analysis is unchanged, see the note below):
+* **Light and dark** (Liu & Burbano 2025, Zenodo 15351451): zebrafish (*Danio rerio*), 9–10 recordings each of pairs and triads in a bright arena and a dark one lit only by infrared, which zebrafish cannot see (about 10.5 min, 33 Hz). Darkness removes vision; the lateral line remains. Ten fish were also recorded alone in each light, which gives two things no earlier dataset had: groups of single fish that certainly never interacted (synthetic groups), and a twin built from the measured behaviour of a fish without a partner (the iso twin).
+* **Virtual reality** (Escobedo et al. 2026, figshare 30539666): rummy-nose tetras (*Hemigrammus rhodostomus*), a real fish with a virtual conspecific that responds to it (C1; C2, a faster clone), the same C2 clone made independent of the real fish (C3, one-way interaction), and pairs of real fish (2R). Continuous intervals of at least 30 s; 6–21 experiments per condition.
 * **Measurement:** member variable planar velocity at 10 Hz; group variable the summed velocity; horizon 0.5 s; e67's windows; cross-fitted over 30 s blocks with purged training rows (nothing fitted sees test rows or their lags). Two twins: the member twin (each fish's own past, weights fitted on the members) and, in the light data, the iso twin (weights fitted on single fish recorded alone in the same light). Memory gaps from both.
 * **Development:** simulated tetras only (speed relaxation, wall avoidance in a round arena, persistent noise, attraction and alignment with a 0.2 s reaction delay; all-range, short-range only, or one-way). Without a reaction delay, strongly coupled fish lock together and the member twin's share falls (e77's limit); the delay restores a share that grows with coupling, and the 0.5 s horizon gave the clearest one.
 
@@ -1990,6 +1990,7 @@ Every result before this one was observational. Here the experimenter removes or
 * **The twin built from fish alone agrees.** Using single fish recorded alone (a measured, not modelled, no-interaction twin), the bright–dark contrast holds (0.087 against 0.027 for pairs, 0.200 against 0.007 for triads). It is larger than the member twin's because the iso twin also counts how a partner changes a fish's own movement. It is not zero in the dark, and synthetic groups reach 0.038 on it, because fish differ from each other.
 * **The memory gap holds here too**: within 0.01 in 37 of 38 recordings, with no twin fitted.
 * **Limits.** Darkness also changes how a fish swims alone; the member twin is fitted within each condition, so this does not enter the comparison, but the iso twin is sensitive to it. The C1 clone (slower, differently parameterised) scored below C3, so the share depends on the partner's kinematics as well as on reciprocity; only C2 against C3 holds kinematics fixed. The simulations used for development were generic, not fitted to these fish.
+* **Correction (3 November 2026).** The light and dark recordings were first described here, in the code and in the papers as rummy-nose tetras. Liu & Burbano's fish are zebrafish (*Danio rerio*); only the virtual-reality fish are tetras. The analysis uses positions and velocities only, with no species-specific parameter, so every number above is unchanged. The descriptions in `experiments/intervention_data.py`, `e80_intervention.py` and `e80_figures.py` were corrected, with the new hashes logged.
 
 Figures are in `results/e80_figures/`:
 * `02_light_dark.png`: per-recording shares, both twins, bright and dark, with synthetic groups;
@@ -2099,7 +2100,7 @@ In development, a first version counted a fish before and after a track break as
 
 **What this means.**
 * **The test was uninformative, not a counterexample.** Fish in "darkness" (0 ± 0.1 lux, a projector's black) still coordinate with nearby fish, by lateral line or residual light. Lafoux's order parameters miss this because it is not school-wide order. The share picks it up, as an interaction measure should. But with no condition free of interaction, a dose–response cannot be tested in these data.
-* **Contrast with e80.** Liu & Burbano's dark arena removed interaction in pairs and triads (shares around 0). Rummy-nose tetras in a large tank at 0.1 lux did not lose it.
+* **Contrast with e80.** Liu & Burbano's infrared arena removed interaction in zebrafish pairs and triads (shares around 0). Rummy-nose tetras in a large tank at 0.1 lux did not lose it. The two differ in species, group size and kind of darkness, so the contrast does not isolate any one of them.
 * **Method gain.** The share can be measured from short, broken tracks of large groups, with no identities kept. This was validated in simulation; real large groups give large shares, and shifted controls give zero.
 * **Next:** a large-group intervention that removes interaction outright, such as true infrared darkness or a blocked lateral line, or the within-session darkness-to-light ramps in Lafoux's continuous set, though their darkness has the same limitation.
 
@@ -2394,7 +2395,7 @@ uv run python run.py primes                               # e84 can memory find 
 uv run python run.py lightdose                            # e83 the share of 50-fish schools at eight light levels (needs data/lafoux/; ~4 min)
 uv run python run.py correlation                          # e82 the correlation forecast on fresh markets (needs data/stocks_fresh/; ~15 s)
 uv run python run.py spillover                            # e81 the share against the Diebold-Yilmaz spillover index (needs data/stocks/; ~10 s)
-uv run python run.py intervention                         # e80 switching interaction off: tetras in light and dark, virtual fish (needs data/intervention/; ~40 s)
+uv run python run.py intervention                         # e80 switching interaction off: zebrafish in light and dark, virtual fish (needs data/intervention/; ~40 s)
 uv run python -m experiments.memgap data.csv --horizon 1  # the screening tool on any CSV (rows = time, columns = members)
 uv run python -m lab.build                                # visual lab: open lab/site/index.html
 uv run --with markdown python whitepaper/build.py         # white paper PDF (v2.1)

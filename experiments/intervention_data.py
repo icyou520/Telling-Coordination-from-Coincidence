@@ -1,10 +1,11 @@
 """Fish data with interaction removed or made one-way, resampled to 10 Hz.
 
-Liu & Burbano (2025), Zenodo 10.5281/zenodo.15351451: rummy-nose tetras (Hemigrammus rhodostomus) alone, in pairs
-and in triads, in bright and dark arenas (~10.5 min per recording, 33.3 Hz, pixel coordinates).
-Escobedo et al. (2025), figshare 30539666: the same species in a hemispherical bowl. 2R: two real fish. C1, C2: one
-real fish with a virtual conspecific that responds to it (C2 is a faster clone). C3: the C2 clone, independent of the
-real fish (one-way interaction). 30 Hz, metres, continuous intervals separated by jumps.
+Liu & Burbano (2025), Zenodo 10.5281/zenodo.15351451: zebrafish (Danio rerio) alone, in pairs and in triads, in
+bright arenas and dark ones lit only by infrared (~10.5 min per recording, 33.3 Hz, pixel coordinates).
+Escobedo et al. (2025), figshare 30539666: rummy-nose tetras (Hemigrammus rhodostomus) in a hemispherical bowl.
+2R: two real fish. C1, C2: one real fish with a virtual conspecific that responds to it (C2 is a faster clone).
+C3: the C2 clone, independent of the real fish (one-way interaction). 30 Hz, metres, continuous intervals separated
+by jumps.
 """
 
 from __future__ import annotations

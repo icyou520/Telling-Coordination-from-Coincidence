@@ -32,7 +32,7 @@ interact).
 | Theory | Exact formula on the benchmark system of Liardi et al.; core theorem verified by machine-checked proof (Lean 4) |
 | Simulations | 31 of 32 pre-registered predictions passed across random walkers, flocking models, magnets and oscillators |
 | Real animal groups | 17 recordings, two fish species, 8 to 100 animals: real groups score 0.54 to 0.91 when scored over interleaved blocks (a single early/late split had given 0.18 to 0.89, because some recordings drift); time-shifted "virtual" groups that never interacted score −0.10 to 0.07 |
-| Switching interaction off | The first interventional test. When vision is removed (a dark arena), tetra pairs and triads drop from 0.023 and 0.089 to zero, the same as groups of fish recorded alone; every lit recording scores above every dark one. When a virtual partner stops responding to a real fish, with its own behaviour unchanged, the share falls from 0.063 to 0.019 (15 of 15 pre-registered predictions) |
+| Switching interaction off | The first interventional test. When vision is removed (a dark arena), zebrafish pairs and triads drop from 0.023 and 0.089 to zero, the same as groups of fish recorded alone; every lit recording scores above every dark one. When a virtual partner stops responding to a real fish, with its own behaviour unchanged, the share falls from 0.063 to 0.019 (15 of 15 pre-registered predictions) |
 | Against the finance standard | The Diebold–Yilmaz spillover index counts simultaneous shocks and misses spillover between firms; the share does the reverse. Neither forecasts next month's market volatility (7 of 10 predictions). An apparent forecast of correlation between firms did not replicate on six fresh markets (2 of 6; §9.3) |
 | Finding levels | Given only trajectories, the method found the hidden variables and a three-level hierarchy in simulated systems (25 of 25 pre-registered predictions) |
 | Is a school a level? | Fish schools are self-contained in their shape and motion, but not in their next turn, which is carried for about a second by fast fish at the front (8 of 8 schools, and whichever part of each recording is tested) |
@@ -333,12 +333,13 @@ lessons are built into the final method.
 
 Everything above is observational: the share was compared with groups that
 never interacted, but nobody switched interaction off. Two public
-experiments on rummy-nose tetras do exactly that, and we tested the share on
-both with 15 pre-registered predictions. All 15 passed.
+experiments, one on zebrafish and one on rummy-nose tetras, do exactly that,
+and we tested the share on both with 15 pre-registered predictions. All 15
+passed.
 
-**Light and dark.** Liu and Burbano (2025) filmed pairs and triads in a lit
-arena and in a dark one, where fish cannot see each other and only their
-short-range flow sense remains. They also filmed single fish alone in each
+**Light and dark.** Liu and Burbano (2025) filmed zebrafish pairs and triads
+in a lit arena and in a dark one lit only by infrared, where fish cannot see
+each other and only their short-range flow sense remains. They also filmed single fish alone in each
 condition. Single fish give two things no earlier dataset had: groups put
 together from fish that were never in the same tank, and a twin built not
 from a model but from how a fish actually swims when it is alone.
@@ -358,14 +359,14 @@ counts how a partner changes a fish's own swimming.
 
 <figure>
 <img src="figures/fig5b_intervention.png" alt="Light and dark">
-<figcaption><b>Figure 4b.</b> Interaction share of tetra pairs and triads in
+<figcaption><b>Figure 4b.</b> Interaction share of zebrafish pairs and triads in
 a lit and a dark arena, per recording (dots), pooled with 90% intervals
 (orange), and for groups of fish recorded alone (grey crosses). Left: twin
 from each fish's own past. Right: twin from fish recorded alone.</figcaption>
 </figure>
 
 **A partner that responds, or ignores.** Escobedo and colleagues (2026)
-let a real fish swim with a virtual one projected into its tank. In one
+let a real rummy-nose tetra swim with a virtual one projected into its tank. In one
 condition the virtual fish responds to the real fish; in another, the very
 same virtual fish ignores it, so interaction runs one way only. Removing the
 partner's response lowered the share from 0.063 [0.058, 0.066] to 0.019
@@ -380,7 +381,7 @@ fish (2R). Grey crosses: time-shifted groups that never interacted.</figcaption>
 </figure>
 
 The memory-gap equation (Section 10) matched the measured share within
-0.01 in 37 of 38 tetra recordings. Two caveats remain. Darkness also changes
+0.01 in 37 of 38 light and dark recordings. Two caveats remain. Darkness also changes
 how a fish swims alone; the main twin is fitted within each condition, so
 this does not enter the comparison. And the slower virtual fish (C1) scored
 below the one-way condition, so the share depends on the partner's movement
@@ -388,7 +389,7 @@ as well as on whether it responds; only the C2–C3 comparison holds that
 fixed.
 
 **Large schools: no dose–response.** We then asked for a graded effect:
-schools of about 50 tetras, each filmed for an hour at one of eight fixed
+schools of about 50 rummy-nose tetras, each filmed for an hour at one of eight fixed
 light levels from darkness to 900 lux (Lafoux et al. 2023). The tracker
 follows each fish for only 4–80 s on average before giving it a new identity,
 so we measured the share as its memory gap from short-lag statistics. We
@@ -410,8 +411,9 @@ falls with distance, as interaction does. Lafoux's own measures (polarization,
 milling) see only the school-wide order, which does need light. The share
 measures any coordination that helps forecast the school, and in these
 recordings that persisted in the dark. It may come from the lateral line, or
-from residual light (darkness was 0 ± 0.1 lux from a projector). So these
-recordings cannot test whether the share tracks how much fish interact.
+from residual light (darkness was 0 ± 0.1 lux from a projector, not the
+infrared of the zebrafish experiment). So these recordings cannot test
+whether the share tracks how much fish interact.
 
 ## 6. Where the method did not work
 
@@ -1570,7 +1572,7 @@ archived at doi:10.5281/zenodo.23934342):
   (requires the public dataset of Steinmetz et al.) and `uv run python run.py silencing silencing2`
   (requires DANDI 000221, Inagaki et al.); the second-laboratory replication `uv run python run.py almrep`
   (requires DANDI 000006, Economo et al.);
-* switching interaction off (Section 5.3): `uv run python run.py intervention` (tetras in light and dark from Zenodo 10.5281/zenodo.15351451 and virtual-reality fish from figshare 30539666, in `data/intervention/`);
+* switching interaction off (Section 5.3): `uv run python run.py intervention` (zebrafish in light and dark from Zenodo 10.5281/zenodo.15351451 and virtual-reality fish from figshare 30539666, in `data/intervention/`);
 * markets (Section 9): `uv run python run.py markets logvol leak` (requires the Kenneth French data library) and `uv run python run.py stocks` (individual firms; fetch with `python -m experiments.stock_data constituents` and `prices`);
 * the memory-gap equation (Section 10): `uv run python run.py memorygap fishgap screen almholdout polgap nonlinear exacttwin leak twingap`; the test-segment audit of Section 7: `uv run python run.py rotate`; and the screening
   tool on any CSV of member time series: `uv run python -m experiments.memgap data.csv --horizon 1`;
