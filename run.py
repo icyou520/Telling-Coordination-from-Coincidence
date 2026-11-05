@@ -105,6 +105,7 @@ from experiments import (
     e88_group_size,
     e89_time_reversal,
     e90_petrol,
+    e91_sydney,
 )
 
 EXPERIMENTS = {
@@ -252,6 +253,8 @@ EXPERIMENTS = {
                  e89_time_reversal.main),
     "petrol": ("Perth petrol: price leadership and tacit collusion, 2004-2026 (needs data/fuelwatch/; run "
                "python -m experiments.fuelwatch_data)", e90_petrol.main),
+    "sydney": ("Sydney petrol: shared price leadership the influence measure cannot name, 2016-2017 (needs "
+               "data/fuelcheck/; run python -m experiments.fuelcheck_data)", e91_sydney.main),
 }
 
 

@@ -1193,4 +1193,15 @@ EXPERIMENTS = [
                  "BP leads in 2004-2008; nobody leads under the 2012-2015 Thursday rule."),
              fig("e90_figures/10_full_results_text.png", "Full text output", "The complete printed results.", "For checking numbers.", "The raw record."),
          ]),
+    dict(id="e91", theme="markets", title="Sydney petrol: coordination is seen, but leaders who take turns are not named", verdict="5/6 pass", tone="pass",
+         section="e91:",
+         summary="Every Sydney petrol price change, 2016-2017, where economists documented that five major chains took turns leading monthly price restorations, with rivals following within hours. Simulations showed beforehand that influence cannot name such leaders on daily data: a member adds information only if it moves a day before most of the group, consistently. As predicted, the share sees the coordination (0.143) and no brand stands out (largest 0.083, level with the time-shifted controls). With e90 this bounds the method: it finds a single leader that moves first, not a rotating club.",
+         figures=[
+             fig("e91_figures/01_scorecard.png", "Scorecard", "The 6 pre-registered predictions.", "One row per prediction.", "Five passed; one simulated time-shifted control exceeded its share limit."),
+             fig("e91_figures/02_influence.png", "Who leads",
+                 "Left: simulated markets, firm 0 (the leader where there is one, orange) against the largest other firm (blue); crosses mark time-shifted controls. Right: Sydney brands, majors in orange. The dashed line is the 0.15 needed to name a leader.",
+                 "A bar past the dashed line names a leader.",
+                 "Only the simulated single leader crosses the line; no Sydney brand does."),
+             fig("e91_figures/10_full_results_text.png", "Full text output", "The complete printed results.", "For checking numbers.", "The raw record."),
+         ]),
 ]

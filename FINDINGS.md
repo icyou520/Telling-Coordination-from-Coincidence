@@ -2281,6 +2281,33 @@ The method is therefore a **leadership detector**, complementary to margin and v
 
 Figure: `results/e90_figures/02_influence.png`.
 
+### e91: Sydney petrol. Coordination is seen, but leaders who take turns and are followed within the day are not named
+
+**The question.** e90 found a single leader whose rivals followed a day later. Can the method name leaders when they share the role? Byrne, de Roos, Lewis, Marx and Wu studied Sydney with the same public data (FuelCheck, August 2016 to December 2017). They found 18 market-wide restorations, about one a month. The five majors (BP, Caltex, Woolworths, Coles Express, 7-Eleven) led and coordinated them by station-level price signals and took turns: each signalled before 17–39% of restorations. In their worked example BP jumped first at noon, Woolworths and Caltex within two hours, 7-Eleven by evening and Coles the next day. Smaller chains followed.
+
+**Development showed the limit before any real share was computed.** In simulation, a single leader followed a day later stands out (0.19–0.68). But the same leader followed by most majors within the same day reads about 0.04, and rotating leadership at most 0.11. Even the five majors taken as one block add almost nothing (0.003). A member's history adds to the group's own past only if that member moves at least one time step ahead of most of the group, and does so consistently. When several large members jump together, the group average already shows the restoration. So the experiment was pre-registered as a test of this limit: coordination should be seen, but no leader named.
+
+**Setup** (`experiments/e91_sydney.py`, data `experiments/fuelcheck_data.py`):
+* **Data:** every unleaded (U91) price change at every NSW station (FuelCheck, CC BY 4.0), and the Australian Institute of Petroleum's daily Sydney terminal gate price.
+* **Members:** brands, each the mean of its Greater Sydney stations' end-of-day prices minus the wholesale price (12 brands with at least 10 stations, 11 to 132 each). September 2016 to December 2017, with August as a warm-up.
+* **Recorded causes, design, virtual groups:** as e90.
+* **Detection line:** on a 70-week record, virtual groups in development reached influence 0.135 (Perth's 190 weeks: 0.045), so the line for naming a leader was set at 0.15. Perth's BP (0.215) would clear it.
+
+**5 of 6 predictions passed.**
+* **Simulations (P1–P3):** independent firms show no share or influence; a single leader followed a day later reads 0.40–0.45; rotating or same-day leadership is seen as coordination (S 0.38–0.47) with no firm above 0.105.
+* **Sydney (P5):** S = **0.143** [0.101, 0.186]; its virtual groups read ≤ 0.001. Coordination is clearly seen.
+* **Sydney (P6):** no brand reaches the line. The largest is Caltex Woolworths at 0.083, which is level with Sydney's own virtual-group maximum (0.086). The method names no leader, as predicted.
+* **Failed (P4):** one of 65 virtual groups, in the simulated same-day-leader market, read S 0.078 against a limit of 0.06. Sydney's own virtual groups all passed.
+
+**Not predicted (exploratory).** The majors as a block add 0.009 and the other brands −0.003. The mean margin was 8.4 cents per litre with a coefficient of variation of 0.63, between Perth's competitive and collusive periods.
+
+**What this means.** Together, e90 and e91 bound what influence can do on daily price data:
+* It names a leader that moves at least a day before most of the market and does so consistently (Perth, 2004–2008).
+* It does not name leaders that take turns, or whose rivals follow within hours (Sydney, 2016–2017). The share still shows the coordination.
+* Finer time resolution (hourly data) would separate same-day following, but not rotation. A rotating club of leaders needs another tool, for example event-by-event ordering of price jumps.
+
+Figure: `results/e91_figures/02_influence.png`.
+
 ---
 
 ## 5. Equations
