@@ -303,3 +303,9 @@ e80 species correction (descriptions only): Liu & Burbano's light/dark fish are 
 fd6e7f15c128cee355a02174fee9c60b3eefab006dbe073d37f27d535c981e3b  experiments/intervention_data.py
 ccf02827688a3d7d070522f6482484218999423048d2bf9c784220362374c08f  experiments/e80_intervention.py
 3e29812c000e5146ad72d1553a81d4a37cd75388c4fc7fc95158c35a35e8a212  experiments/e80_figures.py
+
+Thu Nov  5 00:38:40 UTC 2026
+e90 code (Perth petrol: price leadership and tacit collusion; predictions P1-P7 fixed after development on simulation seed 0 only; real periods A-F fixed from Byrne & de Roos (2019) before any share was computed; real data seen only as member lists, station counts and day counts (no prices, margins or shares); structure smoke test with simulation seed 101, simulations only, which put Wednesday-20% leader influence at +0.045 against the 0.05 threshold of P3, written before the smoke test and not changed):
+c7f05a3410d723c3a657442325b59cb50a1c2b312c6db5f0ae7bde9915ffb5e3  experiments/e90_petrol.py
+0002afcee091929d3edf774ec96679ff1af7dc1ddfd584d280ed096009687942  experiments/e90_figures.py
+5f40bca734fb04da4118d89cc0521378f9ff6e283e2cf3250c0f5b1e53166dec  experiments/fuelwatch_data.py

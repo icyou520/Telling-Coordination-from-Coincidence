@@ -1182,4 +1182,15 @@ EXPERIMENTS = [
                  "The share is symmetric; influence finds the leader only in the true direction of time."),
              fig("e89_figures/10_full_results_text.png", "Full text output", "The complete printed results.", "For checking numbers.", "The raw record."),
          ]),
+    dict(id="e90", theme="markets", title="Perth petrol: influence names the price leader before tacit collusion, and no one once it is a calendar rule", verdict="6/7 pass", tone="pass",
+         section="e90:",
+         summary="Every Perth petrol station's daily price, 2004-2026, where economists documented how BP initiated tacit collusion. Told nothing, the influence measure names BP as the price leader in 2004-2008 (0.215, the largest of seven brands). Once collusion became a calendar rule (everyone jumps on Thursday, 2012-2015) no brand leads (all below 0.034), while margins tripled and price variance halved. The method finds the leader; classical margin and variance screens find the mature collusion. The time-shifted controls failed in three periods with regime changes, which are therefore not interpreted.",
+         figures=[
+             fig("e90_figures/01_scorecard.png", "Scorecard", "The 7 pre-registered predictions.", "One row per prediction.", "Six passed; the virtual-group control failed in three real periods."),
+             fig("e90_figures/02_influence.png", "Who leads",
+                 "Left: simulated markets, the leader's influence (orange) against the largest other firm (blue). Right: Perth by period, BP against the largest other brand; crosses mark the largest influence among time-shifted controls.",
+                 "A long orange bar with a short blue one = one firm leads. Bars near a cross are not distinguishable from the control.",
+                 "BP leads in 2004-2008; nobody leads under the 2012-2015 Thursday rule."),
+             fig("e90_figures/10_full_results_text.png", "Full text output", "The complete printed results.", "For checking numbers.", "The raw record."),
+         ]),
 ]

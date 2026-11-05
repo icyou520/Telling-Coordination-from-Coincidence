@@ -104,6 +104,7 @@ from experiments import (
     e87_randu,
     e88_group_size,
     e89_time_reversal,
+    e90_petrol,
 )
 
 EXPERIMENTS = {
@@ -249,6 +250,8 @@ EXPERIMENTS = {
                   e88_group_size.main),
     "reversal": ("Time reversal: the share, the memory gap and influence run backwards (needs data/finance/)",
                  e89_time_reversal.main),
+    "petrol": ("Perth petrol: price leadership and tacit collusion, 2004-2026 (needs data/fuelwatch/; run "
+               "python -m experiments.fuelwatch_data)", e90_petrol.main),
 }
 
 

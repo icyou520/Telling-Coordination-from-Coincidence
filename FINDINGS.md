@@ -2252,6 +2252,35 @@ Measures, each computed forwards and on the reversed record: the memory gap; twi
 
 Figure: `results/e89_figures/02_forward_vs_reversed.png`.
 
+### e90: Perth petrol. Influence names the price leader before collusion, and sees no leader once it is a calendar rule
+
+**The question.** Can the method help detect tacit collusion? Byrne and de Roos (2019, *AER*) documented, from public data, how BP initiated tacit collusion in Perth petrol: a price cycle that BP (and Caltex before 2006) led in 2004–2008; Wednesday jumps by BP, followed by the market on Thursday, in 2009–2011; and from mid-2012 a calendar rule, everyone jumping on Thursday and cutting 2 cents a day, with margins up 74%.
+
+**Setup** (`experiments/e90_petrol.py`, data `experiments/fuelwatch_data.py`):
+* **Data:** FuelWatch daily prices for every Western Australian station, 2001–2026 (CC BY 4.0), and daily terminal gate prices from 2003.
+* **Members:** brands, each its Perth metro stations' mean unleaded price minus the wholesale price (7–10 brands with at least 10 stations).
+* **Recorded causes:** the day's change in wholesale price, and weekday.
+* **Periods,** fixed from the published account before any share was computed: A 2004–2008 (cycle), B 2009–2011 (Wednesday leader), C 2012–2015 (Thursday rule); D–F 2016–2026, never analysed in the literature (exploratory).
+* **Development on simulations only:** a station-level model of 8 firms. A leader whose rivals follow a day later stands out by influence (0.46). Firms that all jump on a fixed weekday show no leader, because the weekday explains them. A fixed-weekday leader with only 20% of its stations is also invisible. Virtual groups had to be shifted by whole weeks, over records of whole weeks. Day-level shifts moved weekly cycles off their weekday and read up to 0.39.
+
+**6 of 7 predictions passed.**
+* **Simulations (P1–P3):** all as developed on fresh seeds. Leader 0.38–0.43 (0.13–0.19 when leadership is shared); a Thursday rule no leader (≤ 0.005); Wednesday leadership 0.49–0.72 with the whole network, ≤ 0.021 with 20% of it.
+* **Perth 2004–2008 (P5):** BP has the largest influence of all brands, **0.215**. The method was told nothing about who leads. Peak, a 20-station independent chain, is second (0.164). The published account does not mention it, and this is unexplained.
+* **Perth 2012–2015 (P6, P7):** no brand has influence above 0.034, and BP's fell from 0.215 to 0.001. A calendar rule shows no leader.
+* **Failed (P4): virtual groups in three real periods.** Shifted brands gave shares up to 0.11 (B), influence up to 0.16 (E) and shares up to 0.19 (F), against limits of 0.02 and 0.04. These periods contain regime changes: the 2009–2011 transition, 2020 and 2022 price shocks, and rebranding. Shifting a member moves those regimes too. The controls were clean in A, C and D (virtual influence ≤ 0.039). So B, E and F, including the apparent leaders there (Peak and Gull in B, Puma in E, Atlas and Liberty in F), are not interpretable.
+
+**Not predicted (exploratory).**
+* **The share:** 0.29 in 2004–2008 (memory gap 0.13; jumps are far from linear), and 0.088 [0.026, 0.142] in 2012–2015 against virtual groups ≤ −0.016. In simulation, a pure calendar rule read 0. The real Thursday rule therefore carries some day-to-day coordination beyond the calendar, without any leader.
+* **The standard screens,** on the same data: mean margin 3.6, 6.0 and 9.3 cents per litre in A, B and C, and coefficient of variation 0.73, 0.59 and 0.37. Both flag the collusive period clearly, as the literature found.
+
+**What this means.** Influence and the classical screens see different stages of tacit collusion:
+* Influence names the firm that leads prices, from public data and without being told, during the phase in which BP built the market's coordination.
+* Once collusion is a calendar rule, nobody leads. Influence goes silent, and margins and low price variance are what reveal it.
+
+The method is therefore a **leadership detector**, complementary to margin and variance screens, not a collusion detector on its own. Its controls need records without regime changes.
+
+Figure: `results/e90_figures/02_influence.png`.
+
 ---
 
 ## 5. Equations

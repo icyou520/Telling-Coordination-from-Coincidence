@@ -11,9 +11,10 @@ switched off. The **interaction share** S = 1 − MSE(group)/MSE(twin) is the pa
 interaction can explain. It was tested in simulations with a known answer and then on schooling fish, zebrafish,
 pigeon flocks, mouse cortex (including a causal silencing experiment) and stock markets, and then pushed to its
 extremes: the Ising phase transition, groups of 2 to 10,000, time reversal, a flawed random-number generator (RANDU)
-and the prime numbers.
+and the prime numbers. A first application test (e90, not yet in the papers) asks whether it can help detect tacit
+collusion, on every Perth petrol station's daily price from 2004 to 2026.
 
-90 experiments (e0–e89), 73 of them scored against predictions written and hashed before the run: 342 of 492
+91 experiments (e0–e90), 74 of them scored against predictions written and hashed before the run: 348 of 499
 predictions passed. Every experiment, including the failures, is written up in [FINDINGS.md](FINDINGS.md).
 
 **Papers:** [manuscript (PDF)](manuscript/Couture_Interaction_Share_Manuscript.pdf) ·
