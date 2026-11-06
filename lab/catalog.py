@@ -1204,4 +1204,15 @@ EXPERIMENTS = [
                  "Only the simulated single leader crosses the line; no Sydney brand does."),
              fig("e91_figures/10_full_results_text.png", "Full text output", "The complete printed results.", "For checking numbers.", "The raw record."),
          ]),
+    dict(id="e92", theme="extremes", title="Superfluid vortices: the share sees Onsager clusters in 20 vortices, not reliably in 8", verdict="4/6 pass", tone="partial",
+         section="e92:",
+         summary="Simulated quantized vortices in a flat superfluid, where Onsager predicted that same-sign vortices cluster at high energy. From velocities alone the share reads zero for non-interacting vortices and 0.89-1.00 for clusters of 20, above every random or paired state, and survives modest imaging error. With only 8 vortices, chance configurations read as high as clusters, so a real test needs real-time tracking of about 20 vortices.",
+         figures=[
+             fig("e92_figures/01_scorecard.png", "Scorecard", "The 6 pre-registered predictions.", "One row per prediction.", "Four passed; one time-shifted control and the 8-vortex test failed."),
+             fig("e92_figures/02_share_vs_energy.png", "Share against energy",
+                 "Left: 20 vortices, share against energy per vortex, by preparation (dots clean, crosses with imaging jitter). Right: 8 vortices over 500 frames, random against clustered, per seed.",
+                 "Points high and to the right = clusters read as collective.",
+                 "Clusters of 20 read near 1; with 8 vortices random states can read as high."),
+             fig("e92_figures/10_full_results_text.png", "Full text output", "The complete printed results.", "For checking numbers.", "The raw record."),
+         ]),
 ]

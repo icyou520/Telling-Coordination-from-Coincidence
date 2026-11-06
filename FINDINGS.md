@@ -2308,6 +2308,35 @@ Figure: `results/e90_figures/02_influence.png`.
 
 Figure: `results/e91_figures/02_influence.png`.
 
+### e92: Superfluid vortices. The share sees Onsager clusters in 20 vortices, but not reliably in 8
+
+**The question.** In a flat superfluid (a thin Bose-Einstein condensate or helium film) the flow is carried by quantized vortices of circulation +1 or −1. Their motion follows the point-vortex equations, the long-distance limit of the Gross-Pitaevskii equation. Onsager (1949) predicted that at high energy same-sign vortices gather into large clusters, and two experiments observed this in 2019 (Gauthier et al.; Johnstone et al., *Science* 364). Told only each vortex's velocity, does the share see the cluster state as collective motion, and stay at zero when vortices don't interact? If so, it is a model-free order parameter for vortex-tracking data.
+
+**Setup** (`experiments/e92_vortices.py`, simulation only):
+* **Model:** 20 vortices (10 of each sign) in a disk with wall images, softened cores and weak thermal diffusion; 2,000 frames. Also 8 vortices over 500 frames, closer to what an experiment tracks.
+* **Preparations,** from low to high energy: +/− pairs (dipoles), random positions, and two same-sign clusters of decreasing spread (0.35 to 0.08). A non-interacting control keeps only each vortex's own wall image.
+* **Members:** each vortex's frame-to-frame velocity (x and y separately; S is their mean). No recorded causes. Imaging jitter of a third of a core size was added in a second reading.
+* **Development** (seeds 0 and 10–13) chose velocities over positions: positions read S 0.12 with no interaction, because smooth precession fools the forecast.
+
+**4 of 6 predictions passed.**
+* **No interaction (P1):** S within ±0.015, with or without jitter.
+* **Clusters (P3, P4):** S 0.89–0.95 at spread 0.25 and 0.97–1.00 tighter; every cluster state above every dipole and random state on every seed.
+* **Jitter (P5):** tight clusters keep S 0.81–0.97.
+* **Failed (P2):** one time-shifted control, in the tightest clusters, read 0.034 against a limit of 0.02 (all others ≤ 0.029 for 8 vortices and ≤ 0.009 otherwise).
+* **Failed (P6):** with 8 vortices over 500 frames, random states read 0.74 and 0.60 on two of three seeds, against 0.89–1.00 for clusters. In development they had read 0.03–0.19. With so few vortices, a chance configuration can move as coherently as a cluster.
+
+**Not predicted (exploratory).**
+* **Energy:** across all 20-vortex states, S ranks with energy per vortex at 0.90. Below random-state energies it is erratic, though: dipole and random states range from 0.14 to 0.71.
+* **Memory gap:** S_pred tracks S within about 0.05 everywhere. The share here is carried by the members' and the group's memory alone, so it could be computed from autocovariances of tracked velocities.
+* **Jitter in small groups:** it pulls clusters down to 0.34–0.74.
+
+**What this means.**
+* In a 20-vortex superfluid, the share is a clean, model-free detector of Onsager clustering: zero without interaction, near 1 for clusters, from velocities alone, robust to modest imaging error.
+* It is not a thermometer at low energy, and with about 8 vortices it cannot tell clustering from chance.
+* A real test needs in-situ (non-destructive) tracking of about 20 or more vortices over hundreds of frames, with sub-core position precision. Many condensate experiments image destructively, one shot per run, which gives no time series. So the data step depends on finding a lab that tracks vortices in real time.
+
+Figure: `results/e92_figures/02_share_vs_energy.png`.
+
 ---
 
 ## 5. Equations

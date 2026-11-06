@@ -13,8 +13,9 @@ pigeon flocks, mouse cortex (including a causal silencing experiment) and stock 
 extremes: the Ising phase transition, groups of 2 to 10,000, time reversal, a flawed random-number generator (RANDU)
 and the prime numbers. A first application test (e90–e91, not yet in the papers) asks whether it can help detect tacit
 collusion, on every Perth petrol station's daily price from 2004 to 2026 and every Sydney price change in 2016–2017.
+A simulation test (e92) asks whether it sees Onsager vortex clusters in a two-dimensional superfluid.
 
-92 experiments (e0–e91), 75 of them scored against predictions written and hashed before the run: 353 of 505
+93 experiments (e0–e92), 76 of them scored against predictions written and hashed before the run: 357 of 511
 predictions passed. Every experiment, including the failures, is written up in [FINDINGS.md](FINDINGS.md).
 
 **Papers:** [manuscript (PDF)](manuscript/Couture_Interaction_Share_Manuscript.pdf) ·

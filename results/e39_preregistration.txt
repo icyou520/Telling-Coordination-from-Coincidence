@@ -315,3 +315,8 @@ e91 code (Sydney petrol: shared price leadership, a test of the stated limit tha
 9886175b4e557d8bf7e5f6e03837f23b7858aeea58fcaba999dfb18d27279489  experiments/e91_sydney.py
 66d8d5b1fbf43d88f51d51c1a638c7f1abd9f1af877545b9a0319c13a4b48a3e  experiments/e91_figures.py
 4cce01cdea010c5f68662d37fa6fcdb265b3ef85a978d989a7b245e15c4636c1  experiments/fuelcheck_data.py
+
+Fri Nov  6 00:47:43 UTC 2026
+e92 code (Onsager vortex clusters in a 2D superfluid, point-vortex simulation; predictions P1-P6 fixed after development on simulation seeds 0 and 10-13 only; member signal (velocities, not positions) chosen in development because positions read S +0.12 without interaction; the structure smoke test (seed 101) was run with its printed numbers discarded, checking only that it completes and writes its outputs):
+7666e084401f27bd0adc03444e325fad6a3cf38d7a32cc4f0601910f6a5bce25  experiments/e92_vortices.py
+037eb61620122e3004ef67d1c7da780303a2ebd46963dfffece7635ea7c47129  experiments/e92_figures.py
